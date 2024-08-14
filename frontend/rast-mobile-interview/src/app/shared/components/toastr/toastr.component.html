@@ -1,0 +1,6 @@
+<div class="toast-class" (click)="closeToast()" [@toastAnimation]="showsToast ? 'visible' : 'hidden'"
+    [ngClass]="{'success-toast': toastType === 'success', 'warning-toast': toastType === 'warning', 'danger-toast': toastType === 'error'}">
+    <div>
+        <p class="text-message">{{ toastMessage }}</p>
+    </div>
+</div>

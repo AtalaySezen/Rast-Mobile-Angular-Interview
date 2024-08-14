@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { environment } from '../environments/environment';
+import { ToastrComponent } from "./shared/components/toastr/toastr.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  imports: [RouterOutlet, ToastrComponent]
 })
 export class AppComponent {
-  
-  constructor() {
-    console.log(environment.production);
-  }
 
 }
