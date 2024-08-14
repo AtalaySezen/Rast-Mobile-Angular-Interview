@@ -1,0 +1,72 @@
+@import "var.scss";
+
+.container-login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $bg-white;
+        width: 100%;
+        max-width: 450px;
+        padding: 40px;
+        border-radius: 16px;
+        height: 100%;
+        max-height: 450px;
+        box-shadow: 0 4px 20px 10px $box-shadow-black;
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+        }
+        input {
+            min-height: 50px;
+            padding: 0 16px;
+            border: 1px solid $border-gray;
+            border-radius: 4px;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            color: $black-color;
+        }
+    }
+
+    span.hint {
+        position: absolute;
+        top: 3.5rem;
+        color: $error-red;
+    }
+
+    form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 15px;
+        gap: 26px;
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            max-width: 250px;
+            width: 100%;
+        }
+
+        .btn-eye {
+            background-color: transparent;
+            position: absolute;
+            right: 1.5rem;
+        }
+    }
+}

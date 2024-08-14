@@ -15,4 +15,7 @@ button {
     color: white;
     border-radius: 39px;
     @include button-font;
+    &:disabled {
+        opacity: 0.4;
+    }
 }
