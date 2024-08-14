@@ -7,6 +7,6 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'anasayfa' },
     { path: 'anasayfa', component: HomeComponent, title: 'Anasayfa' },
     { path: 'hakkimizda', component: AboutUsComponent, title: 'Hakkımızda' },
-    { path: 'giris', component: LoginComponent, title: 'Giriş' },
+    { path: 'giris', component: LoginComponent, title: 'Rast Mobile Angular Interview' },
 
 ];
