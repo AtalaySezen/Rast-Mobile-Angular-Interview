@@ -2,5 +2,17 @@
 @import "../var.scss";
 
 button {
-    background-color: $bg-red;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-purple {
+    background-color: $bg-purple;
+    width: 175px;
+    height: 42px;
+    color: white;
+    border-radius: 39px;
+    @include button-font;
 }
