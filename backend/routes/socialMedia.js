@@ -12,7 +12,7 @@ router.post("/", authMiddleware, async (req, res) => {
     await newSocialMedia.save();
     res.status(201).json({
       status: "success",
-      message: "Created successfully",
+      message: "Başarılı",
       data: newSocialMedia,
     });
   } catch (err) {
@@ -61,7 +61,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
     if (!socialMedia) {
       return res.status(404).json({
         status: "error",
-        message: "Data not found",
+        message: "Veri Bulunamadı",
         data: null,
       });
     }
@@ -85,13 +85,13 @@ router.delete("/:id", authMiddleware, async (req, res) => {
     if (!socialMedia) {
       return res.status(404).json({
         status: "error",
-        message: "Social media not found",
+        message: "Veri Bulunamadı",
         data: null,
       });
     }
     res.json({
       status: "success",
-      message: "Successfully Removed",
+      message: "Başarıyla Silindi",
       data: null,
     });
   } catch (err) {
@@ -116,14 +116,14 @@ router.put("/:id", authMiddleware, async (req, res) => {
     if (!updatedSocialMedia) {
       return res.status(404).json({
         status: "error",
-        message: "Social media not found",
+        message: "Veri Bulunamadı",
         data: null,
       });
     }
 
     res.json({
       status: "success",
-      message: "Social media updated successfully",
+      message: "Güncellendi",
       data: updatedSocialMedia,
     });
   } catch (err) {

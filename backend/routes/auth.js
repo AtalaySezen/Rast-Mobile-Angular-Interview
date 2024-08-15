@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
       if (existingUser) {
         return res.status(400).json({
           status: "error",
-          message: "Email is already registered",
+          message: "İşlem tamamlanamadı.",
         });
       }
   
@@ -23,7 +23,7 @@ router.post("/register", async (req, res) => {
   
       res.status(201).json({
         status: "success",
-        message: "User registered",
+        message: "Başarılı",
         createdAt: newUser.createdAt,
       });
     } catch (err) {
@@ -42,13 +42,13 @@ router.post("/login", async (req, res) => {
     if (!user)
       return res
         .status(400)
-        .json({ status: "error", message: "User Not Found" });
+        .json({ status: "error", message: "Kullanıcı Bulunamadı" });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res
         .status(400)
-        .json({ status: "error", message: "User Not Found" });
+        .json({ status: "error", message: "Kullanıcı Bulunamadı" });
 
     const token = jwt.sign({ user: { id: user._id } }, process.env.JWT_SECRET, {
       expiresIn: "1h",
@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
 
     res.json({
       status: "success",
-      message: "Login successful",
+      message: "Başarılı",
       token,
     });
   } catch (err) {
