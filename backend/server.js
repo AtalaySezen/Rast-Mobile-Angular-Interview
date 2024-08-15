@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
+const socialMediaRoutes = require("./routes/socialMedia");
+const tokenRoutes = require("./routes/token");
 
 const app = express();
 
@@ -37,6 +40,8 @@ app.use(express.json());
 
 //Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/socialMedia", socialMediaRoutes);
+app.use("/api/token", tokenRoutes);
 
 const PORT = process.env.PORT;
 
