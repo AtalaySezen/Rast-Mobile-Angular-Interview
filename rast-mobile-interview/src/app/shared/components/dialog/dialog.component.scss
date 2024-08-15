@@ -1,0 +1,34 @@
+@import "../../styles/var.scss";
+@import "../../styles/typography.scss";
+
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg-overlay;
+    z-index: 1000;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $bg-dialog-white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1001;
+    width: 100%;
+    max-width: 488px;
+    height: 406px;
+    border-radius: 13px;
+    box-shadow: 0px 4px 16px 0px $dialog-box-shadow;
+
+   
+}

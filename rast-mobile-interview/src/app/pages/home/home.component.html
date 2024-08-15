@@ -3,6 +3,8 @@
         <app-header></app-header>
     </div>
     <div class="layout-content">
+        <button (click)="openDialog()">Dialog Aç</button>
+        <app-dialog *ngIf="dialogService.dialogIsOpen"></app-dialog>
         <div class="container">
             @for (item of homeRepository.socialMediasArray; track $index) {
             <p>{{item._id}}</p>
