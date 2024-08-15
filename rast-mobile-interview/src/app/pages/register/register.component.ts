@@ -22,7 +22,7 @@ export class RegisterComponent {
 
   userRegister() {
     if (this.registerForm.valid) {
-      this.authRepository.Login(this.registerForm.value.email!, this.registerForm.value.password!);
+      this.authRepository.Register(this.registerForm.value.email!, this.registerForm.value.password!);
     }
   }
 

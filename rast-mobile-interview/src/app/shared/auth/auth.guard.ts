@@ -4,6 +4,5 @@ import { AuthRepository } from '../repositories/auth.repository';
 
 export const authGuard: CanActivateFn = async (route, state) => {
     const authRepo = inject(AuthRepository);
-
-    return false;
+    return authRepo.AuthGuardRepo();
 };

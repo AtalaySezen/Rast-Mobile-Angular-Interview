@@ -107,7 +107,6 @@ export class AuthRepository {
     }
     //#endregion
 
-
     //#region Register Account
     Register(email: string, password: string) {
         this.loading = true;
