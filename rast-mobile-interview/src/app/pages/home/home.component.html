@@ -4,9 +4,15 @@
     </div>
     <div class="layout-content">
         <div class="container">
-            home
+            @for (item of homeRepository.socialMediasArray; track $index) {
+            <p>{{item._id}}</p>
+            <p>{{item.name}}</p>
+            <p>{{item.description}}</p>
+            <button class="btn" (click)="getSocialMediaWithID(item._id)">ID İle Al Test</button>
+            <br>
+            <button class="btn" (click)="deleteSocialMedia(item._id)">Sil Test</button>
+            <hr>
+            }
         </div>
-
     </div>
-
 </main>
