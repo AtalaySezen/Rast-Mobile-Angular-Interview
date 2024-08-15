@@ -35,11 +35,15 @@ export class HomeComponent {
         }
     }
 
-    openDialog() {
+    openDialog(id: string, socialMediaUrl: string, socialMediaName: string, description: string) {
+        this.dialogService.dialogData = {
+            id: id,
+            socialMediaUrl: socialMediaUrl,
+            socialMediaName: socialMediaName,
+            description: description
+        };
         this.dialogService.dialogIsOpen = true;
     }
-
-
 
 
 

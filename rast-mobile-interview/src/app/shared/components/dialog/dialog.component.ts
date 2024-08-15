@@ -19,12 +19,18 @@ export class DialogComponent {
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
 
+  ngOnInit() {
+    if (this.dialogService.dialogData) {
+      this.dialogForm.patchValue(this.dialogService.dialogData);
+    }
+  }
 
   saveDialog() {
     console.log(this.dialogForm);
   }
 
   closeDialog() {
+    this.dialogForm.reset();
     this.dialogService.dialogIsOpen = false;
   }
 

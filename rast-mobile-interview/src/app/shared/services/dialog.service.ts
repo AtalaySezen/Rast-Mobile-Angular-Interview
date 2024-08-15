@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class DialogService {
   dialogIsOpen: boolean = false;
+  dialogData: any;  
+
+  
 
 
 }
