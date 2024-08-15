@@ -28,10 +28,6 @@ export class DataService {
     return this.http.get<General<SocialMediaData>>(environment.apiUrl + `socialMedia/?page=${parameters.page}&limit=${parameters.size}`);
   }
 
-  UpdateSocialMedia(id: string, data: SocialMediaModel): Observable<SocialMediaModel> {
-    return this.http.put<SocialMediaModel>(environment.apiUrl + `socialMedia/${id}`, data);
-  }
-
   DeleteSocialMedia(id: string) {
     return this.http.delete<General<SocialMediaModel>>(environment.apiUrl + `socialMedia/${id}`);
   }
