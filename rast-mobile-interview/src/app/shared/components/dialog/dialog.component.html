@@ -1,0 +1,55 @@
+<div class="dialog-overlay" (click)="closeDialog()"></div>
+<div class="dialog-content">
+    <div class="flex-dialog-close">
+        <button class="btn-close-dialog" (click)="closeDialog()">
+            <div class="icon-close-dialog"></div>
+        </button>
+    </div>
+    <form [formGroup]="dialogForm" class="dialog-form">
+        <div class="form-field-dialog"
+            [class.error]="(dialogForm.get('socialMediaUrl')?.hasError('required') || dialogForm.get('socialMediaUrl')?.hasError('pattern')) &&  (dialogForm.get('socialMediaUrl')?.touched || dialogForm.get('socialMediaUrl')?.dirty)">
+            <label class="label-dialog">Sosyal Medya Linki</label>
+            <input class="input-dialog" type="text" formControlName="socialMediaUrl" />
+            @if (dialogForm.get('socialMediaUrl')?.hasError('required') && (dialogForm.get('socialMediaUrl')?.touched ||
+            dialogForm.get('socialMediaUrl')?.dirty)) {
+            <span class="hint error-message">Bu alan zorunludur</span>
+            } @else if (dialogForm.get('socialMediaUrl')?.hasError('pattern') &&
+            (dialogForm.get('socialMediaUrl')?.touched ||
+            dialogForm.get('socialMediaUrl')?.dirty)) {
+            <span class="hint error-message">Lütfen geçerli url giriniz.</span>
+            }
+        </div>
+        <div class="form-field-dialog"
+            [class.error]="(dialogForm.get('socialMediaName')?.hasError('required') || dialogForm.get('socialMediaName')?.hasError('minlength')) &&  (dialogForm.get('socialMediaName')?.touched || dialogForm.get('socialMediaName')?.dirty)">
+            <label class="label-dialog">Sosyal Medya Adı</label>
+            <input class="input-dialog" type="text" formControlName="socialMediaName" />
+            @if (dialogForm.get('socialMediaName')?.hasError('required') && (dialogForm.get('socialMediaName')?.touched
+            ||
+            dialogForm.get('socialMediaName')?.dirty)) {
+            <span class="hint error-message">Bu alan zorunludur</span>
+            } @else if (dialogForm.get('socialMediaName')?.hasError('minlength') &&
+            (dialogForm.get('socialMediaName')?.touched ||
+            dialogForm.get('socialMediaName')?.dirty)) {
+            <span class="hint error-message">Lütfen en az 3 karakter giriniz.</span>
+            }
+        </div>
+        <div class="form-field-dialog"
+            [class.error]="(dialogForm.get('description')?.hasError('required') || dialogForm.get('description')?.hasError('minlength')) &&  (dialogForm.get('description')?.touched || dialogForm.get('description')?.dirty)">
+            <label class="label-dialog">Açıklama</label>
+            <input class="input-dialog" type="text" formControlName="description" />
+            @if (dialogForm.get('description')?.hasError('required') && (dialogForm.get('description')?.touched
+            ||
+            dialogForm.get('description')?.dirty)) {
+            <span class="hint error-message">Bu alan zorunludur</span>
+            } @else if (dialogForm.get('description')?.hasError('minlength') &&
+            (dialogForm.get('description')?.touched ||
+            dialogForm.get('description')?.dirty)) {
+            <span class="hint error-message">Lütfen en az 3 karakter giriniz.</span>
+            }
+        </div>
+        <div class="btn-flex-dialog">
+            <button class="btn-sm-light-purple" (click)="closeDialog()">Vazgeç</button>
+            <button class="btn-sm-purple" type="submit" (click)="saveDialog()">Kaydet</button>
+        </div>
+    </form>
+</div>
