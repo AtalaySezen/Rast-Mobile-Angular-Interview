@@ -19,3 +19,21 @@ button {
         opacity: 0.4;
     }
 }
+
+.btn-sm-purple {
+    background-color: $bg-purple;
+    width: 82.76px;
+    height: 37.02px;
+    color: $bg-white;
+    border-radius: 34px;
+    @include btn-sm-font;
+}
+
+.btn-sm-light-purple {
+    background-color: $bg-light-purple;
+    width: 82.76px;
+    height: 37.02px;
+    color: $bg-purple;
+    border-radius: 34px;
+    @include btn-sm-font;
+}

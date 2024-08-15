@@ -16,7 +16,7 @@ export class DialogComponent {
   dialogForm = new FormGroup({
     socialMediaUrl: new FormControl('', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
     socialMediaName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    description: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
 
 

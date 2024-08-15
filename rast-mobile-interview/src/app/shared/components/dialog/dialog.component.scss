@@ -29,6 +29,68 @@
     height: 406px;
     border-radius: 13px;
     box-shadow: 0px 4px 16px 0px $dialog-box-shadow;
+    .flex-dialog-close {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+    }
+    .btn-close-dialog {
+        background-color: transparent;
+    }
+    .dialog-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 22px;
+        width: 100%;
+        max-width: 424px;
+        height: 100%;
+    }
 
-   
+    .form-field-dialog {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        width: 100%;
+
+        span.hint {
+            position: absolute;
+            top: 4.5rem;
+            color: $error-red;
+        }
+
+        .input-dialog {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 424px;
+            height: 40px;
+            border: 1px solid $dialog-input-border;
+            border-radius: 38px;
+            padding-left: 16px;
+            padding-right: 11px;
+        }
+
+        .label-dialog {
+            @include label-dialog-text;
+            color: $dialog-label-color;
+            width: 100%;
+            text-align: left;
+            padding: 5px;
+        }
+    }
+
+    .btn-flex-dialog {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 17px;
+        margin-top: 21px;
+    }
 }
