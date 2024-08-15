@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { General } from '../models/generals.model';
+import { Auth, General } from '../models/generals.model';
 import { AuthData } from '../models/auth.model';
 import { environment } from '../../../environments/environment';
 
@@ -11,8 +11,8 @@ import { environment } from '../../../environments/environment';
 export class AuthService {
   http = inject(HttpClient);
 
-  Login(email: string, password: string): Observable<General<AuthData>> {
-    return this.http.post<General<AuthData>>(environment.apiUrl + 'auth/login',
+  Login(email: string, password: string): Observable<Auth<AuthData>> {
+    return this.http.post<Auth<AuthData>>(environment.apiUrl + 'auth/login',
       {
         email: email,
         password: password
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   TokenIsValid(): Observable<General<null>> {
-    return this.http.get<General<null>>(environment.apiUrl + 'token/tokenIsValid');
+    return this.http.post<General<null>>(environment.apiUrl + 'token/tokenIsValid', {});
   }
 
 
