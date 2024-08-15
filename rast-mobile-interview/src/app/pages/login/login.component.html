@@ -31,7 +31,14 @@
                 <span class="hint error-message">Şifreniz 3-20 karakter aralığında olmalıdır.</span>
                 }
             </div>
-            <button class="btn-purple" type="submit" [disabled]="!loginForm.valid">Giriş Yap</button>
+            <div class="form-field checkbox-flex">
+                <label for="rememberMe"
+                    (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni Hatırla</label>
+                <input name="rememberMe" class="checkbox-input" [checked]="authRepository.rememberMeChecked"
+                    type="checkbox">
+            </div>
+            <button class="btn-purple" type="submit" [disabled]="!loginForm.valid|| authRepository.loading"
+                [class.btn-loader]="authRepository.loading">Giriş Yap</button>
         </form>
     </div>
 </div>

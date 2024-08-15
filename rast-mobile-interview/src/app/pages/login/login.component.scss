@@ -35,6 +35,12 @@
             line-height: 24px;
             color: $black-color;
         }
+
+        .checkbox-flex {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
     }
 
     span.hint {
@@ -55,12 +61,24 @@
         gap: 26px;
         .form-field {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             position: relative;
-            max-width: 250px;
+            max-width: 230px;
             width: 100%;
+        }
+        .checkbox-flex {
+            justify-content: flex-start;
+            gap: 5px;
+
+            label,
+            input {
+                cursor: pointer;
+            }
+            .checkbox-input {
+                width: 16px;
+            }
         }
 
         .btn-eye {
