@@ -1,1 +1,65 @@
-<p>header works!</p>
+<header>
+    <nav class="navbar">
+        <div>
+            <a [routerLink]="['/anasayfa']">
+                <img class="logo-header" width="124" height="36" loading="eager" role="presentation"
+                    src="/assets/images/rast-mobile-header-logo.svg" alt="Rast Mobile Logo">
+            </a>
+        </div>
+        <div class="nav-center">
+            <a class="nav-link" [routerLink]="['/hakkimizda']">Hakkımızda</a>
+            <a class="nav-link" href="https://www.rastmobile.com/tr/urunler/juri-yarisma-yazilimi" target="_blank">Jüri
+                - Yarışma Yazılımı</a>
+
+            <a class="nav-link" href="https://www.rastmobile.com/tr/urunler/word-ninja" target="_blank">Word
+                Ninja</a>
+            <a class="nav-link" href="https://rastmobile.com/en/products/word-pyramids" target="_blank">Word
+                Pyramids</a>
+        </div>
+        <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle Menu">
+            <div class="icon-hamburger-menu"></div>
+        </button>
+        <ul class="nav-icons">
+            <a class="icon-square" href="https://www.youtube.com/@rastmobile183" target="_blank">
+                <div class="icon-youtube"></div>
+            </a>
+            <a class="icon-square" href="https://www.instagram.com/mobilerast/" target="_blank">
+                <div class="icon-instagram"></div>
+            </a>
+            <a class="icon-square" href="https://www.behance.net/rastmobile" target="_blank">
+                <div class="icon-behance"></div>
+            </a>
+            <a class="icon-square" href="https://www.linkedin.com/company/rastmobile/" target="_blank">
+                <div class="icon-linkedin"></div>
+            </a>
+        </ul>
+        <!--Mobil Menü-->
+        <div class="nav-menu" [class.hidden]="!isMenuOpen" [ngClass]="{'active': isMenuOpen}">
+            <button class="hamburger" (click)="toggleMenu()">
+                <div class="icon-close"></div>
+            </button>
+            <a class="nav-link-mobile" [routerLink]="['/hakkimizda']">Hakkımızda</a>
+            <a class="nav-link-mobile" href="https://www.rastmobile.com/tr/urunler/juri-yarisma-yazilimi"
+                target="_blank">Jüri - Yarışma Yazılımı</a>
+            <a class="nav-link-mobile" href="https://www.rastmobile.com/tr/urunler/word-ninja" target="_blank">Word
+                Ninja</a>
+            <a class="nav-link-mobile" href="https://rastmobile.com/en/products/word-pyramids" target="_blank">Word
+                Pyramids</a>
+            <ul class="nav-icons-mobile">
+                <a class="icon-square" href="https://www.youtube.com/@rastmobile183" target="_blank">
+                    <div class="icon-youtube"></div>
+                </a>
+                <a class="icon-square" href="https://www.instagram.com/mobilerast/" target="_blank">
+                    <div class="icon-instagram"></div>
+                </a>
+                <a class="icon-square" href="https://www.behance.net/rastmobile" target="_blank">
+                    <div class="icon-behance"></div>
+                </a>
+                <a class="icon-square" href="https://www.linkedin.com/company/rastmobile/" target="_blank">
+                    <div class="icon-linkedin"></div>
+                </a>
+            </ul>
+        </div>
+        <!--Mobil Menü-->
+    </nav>
+</header>

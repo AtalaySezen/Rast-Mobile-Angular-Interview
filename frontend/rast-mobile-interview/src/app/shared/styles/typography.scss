@@ -23,10 +23,24 @@
     font-style: normal;
 }
 
-@mixin toastr-text{
+@mixin toastr-text {
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
+}
+
+@mixin header-font {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+@mixin header-font-mobile {
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 21px;
 }
 
 .error-message {
