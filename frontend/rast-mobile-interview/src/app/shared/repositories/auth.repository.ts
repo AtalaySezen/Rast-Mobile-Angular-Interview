@@ -12,8 +12,8 @@ export class AuthRepository {
     authService = inject(AuthService);
 
 
-    Login() {
-
+    Login(email: string, password: string) {
+        console.log(email,password);
     }
 
 

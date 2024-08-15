@@ -21,11 +21,11 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value.email, this.loginForm.value.password);
+      this.authRepository.Login(this.loginForm.value.email!, this.loginForm.value.password!);
     }
   }
 
-  showPassword(event: any) {
+  showPassword(event: MouseEvent) {
     event.preventDefault();
     this.passwordType = (this.passwordType === 'password') ? 'text' : 'password';
   }
