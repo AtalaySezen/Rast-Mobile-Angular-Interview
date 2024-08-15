@@ -32,10 +32,10 @@
                 }
             </div>
             <div class="form-field checkbox-flex">
-                <label for="rememberMe"
-                    (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni Hatırla</label>
-                <input name="rememberMe" class="checkbox-input" [checked]="authRepository.rememberMeChecked"
-                    type="checkbox">
+                <label (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni
+                    Hatırla</label>
+                <input name="rememberMe" (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked"
+                    class="checkbox-input" [checked]="authRepository.rememberMeChecked" type="checkbox">
             </div>
             <button class="btn-purple" type="submit" [disabled]="!loginForm.valid|| authRepository.loading"
                 [class.btn-loader]="authRepository.loading">Giriş Yap</button>
