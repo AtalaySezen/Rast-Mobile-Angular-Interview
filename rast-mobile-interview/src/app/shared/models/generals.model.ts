@@ -6,6 +6,13 @@ export interface General<T> {
     data?: T;
 }
 
+export interface Auth<T> {
+    status: 'success' | 'error';
+    message: string;
+    token: string;
+}
+
+
 export interface QueryPageSize {
     page?: number;
     size?: number;

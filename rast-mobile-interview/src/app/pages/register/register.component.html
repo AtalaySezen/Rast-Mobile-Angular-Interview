@@ -1,0 +1,41 @@
+<div class="container-register">
+    <div class="register-card">
+        <form [formGroup]="registerForm" (ngSubmit)="userRegister()" (keyup.enter)="userRegister()">
+            <img class="register-logo" width="80" height="80" src="assets/images/rast-mobile-logo.webp" loading="eager"
+                role="presentation" alt="Rast Mobile Logo">
+            <h1 class="login-header">Kayıt Ol</h1>
+            <div class="form-field"
+                [class.error]="(registerForm.get('email')?.hasError('required') || registerForm.get('email')?.hasError('email')) &&  (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+                <input type="text" formControlName="email" [placeholder]="'E-Posta'" />
+                @if (registerForm.get('email')?.hasError('required') && (registerForm.get('email')?.touched ||
+                registerForm.get('email')?.dirty)) {
+                <span class="hint error-message">Bu alan zorunludur</span>
+                } @else if (registerForm.get('email')?.hasError('email') && (registerForm.get('email')?.touched ||
+                registerForm.get('email')?.dirty)) {
+                <span class="hint error-message">Lütfen geçerli mail adresi giriniz.</span>
+                }
+            </div>
+            <div class="form-field" [class.error]="(registerForm.get('password')?.hasError('required') ||  registerForm.get('password')?.hasError('minlength') || registerForm.get('password')?.hasError('maxlength')) &&
+            (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)">
+                <button class="button btn-eye" (click)="showPassword($event)">
+                    <div class="icon-eye" *ngIf="passwordType == 'password'"></div>
+                    <div class="icon-eye-disable" *ngIf="passwordType !== 'password'"></div>
+                </button>
+                <input [type]="passwordType" formControlName="password" [placeholder]="'Şifre'" />
+                @if (registerForm.get('password')?.hasError('required') && (registerForm.get('password')?.touched ||
+                registerForm.get('password')?.dirty)) {
+                <span class="hint error-message">Bu alan zorunludur</span>
+                } @else if ((registerForm.get('password')?.hasError('minlength') ||
+                registerForm.get('password')?.hasError('maxlength')) && (registerForm.get('password')?.touched ||
+                registerForm.get('password')?.dirty)) {
+                <span class="hint error-message">Şifreniz 3-20 karakter aralığında olmalıdır.</span>
+                }
+            </div>
+            <div class="form-field flex-form-field">
+                <a [routerLink]="['/login']">Giriş Yap</a>
+            </div>
+            <button class="btn-purple" type="submit" [disabled]="!registerForm.valid|| authRepository.loading"
+                [class.btn-loader]="authRepository.loading">Hesap Oluştur</button>
+        </form>
+    </div>
+</div>

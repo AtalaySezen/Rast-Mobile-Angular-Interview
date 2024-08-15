@@ -31,11 +31,16 @@
                 <span class="hint error-message">Şifreniz 3-20 karakter aralığında olmalıdır.</span>
                 }
             </div>
-            <div class="form-field checkbox-flex">
-                <label (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni
-                    Hatırla</label>
-                <input name="rememberMe" (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked"
-                    class="checkbox-input" [checked]="authRepository.rememberMeChecked" type="checkbox">
+            <div class="form-field flex-form-field">
+                <div class="flex-checkbox">
+                    <label for="rememberMe"
+                        (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni
+                        Hatırla</label>
+                    <input name="rememberMe"
+                        (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked"
+                        class="checkbox-input" [checked]="authRepository.rememberMeChecked" type="checkbox">
+                </div>
+                <a [routerLink]="['/register']">Hesap Oluştur</a>
             </div>
             <button class="btn-purple" type="submit" [disabled]="!loginForm.valid|| authRepository.loading"
                 [class.btn-loader]="authRepository.loading">Giriş Yap</button>

@@ -5,25 +5,24 @@ import { AuthRepository } from '../../shared/repositories/auth.repository';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
 })
-
-export class LoginComponent {
+export class RegisterComponent {
   authRepository = inject(AuthRepository);
   passwordType: string = 'password';
 
-  loginForm = new FormGroup({
-    email: new FormControl('user@example.com', [Validators.required, Validators.email]),
-    password: new FormControl('123456', [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
+  registerForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
   });
 
-  login() {
-    if (this.loginForm.valid) {
-      this.authRepository.Login(this.loginForm.value.email!, this.loginForm.value.password!);
+  userRegister() {
+    if (this.registerForm.valid) {
+      this.authRepository.Login(this.registerForm.value.email!, this.registerForm.value.password!);
     }
   }
 
@@ -31,5 +30,4 @@ export class LoginComponent {
     event.preventDefault();
     this.passwordType = (this.passwordType === 'password') ? 'text' : 'password';
   }
-
 }
