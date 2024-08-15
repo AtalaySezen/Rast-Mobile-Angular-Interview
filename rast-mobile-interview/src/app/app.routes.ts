@@ -6,7 +6,7 @@ import { authGuard } from './shared/auth/auth.guard';
 import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'login' },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent, title: 'Anasayfa', canActivate: [authGuard] },
     { path: 'about-us', component: AboutUsComponent, title: 'Hakkımızda', canActivate: [authGuard] },
     { path: 'login', component: LoginComponent, title: 'Rast Mobile Angular Login' },

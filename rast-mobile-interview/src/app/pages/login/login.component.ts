@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthRepository } from '../../shared/repositories/auth.repository';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,18 @@ import { RouterModule } from '@angular/router';
 
 export class LoginComponent {
   authRepository = inject(AuthRepository);
+  router = inject(Router);
+
   passwordType: string = 'password';
 
   loginForm = new FormGroup({
     email: new FormControl('user@example.com', [Validators.required, Validators.email]),
     password: new FormControl('123456', [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
   });
+
+  ngOnInit() {
+    this.authRepository.checkUserToken();
+  }
 
   login() {
     if (this.loginForm.valid) {

@@ -20,6 +20,10 @@ export class RegisterComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
   });
 
+  ngOnInit() {
+    this.authRepository.checkUserToken();
+  }
+
   userRegister() {
     if (this.registerForm.valid) {
       this.authRepository.Register(this.registerForm.value.email!, this.registerForm.value.password!);

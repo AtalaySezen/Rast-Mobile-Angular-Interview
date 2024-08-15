@@ -2,7 +2,7 @@ import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../services/auth.service";
 import { ToastType, ToastrService } from "../services/toastr.service";
-import { Auth, General } from "../models/generals.model";
+import { Auth } from "../models/generals.model";
 import { environment } from "../../../environments/environment";
 import { AuthData } from "../models/auth.model";
 
@@ -19,7 +19,6 @@ export class AuthRepository {
     rememberMeChecked: boolean = false;
     loading: boolean = false;
 
-
     async AuthGuardRepo(): Promise<boolean> {
         if (this.token != '') {
             this.CheckTokenIsValid();
@@ -29,6 +28,7 @@ export class AuthRepository {
             return await false;
         }
     }
+
 
     Login(email: string, password: string) {
         this.loading = true;
@@ -75,6 +75,12 @@ export class AuthRepository {
                 console.error(err);
             },
         });
+    }
+
+    checkUserToken() {
+        if (this.token != '') {
+            this.router.navigate(['home']);
+        }
     }
 
     LogOut() {
