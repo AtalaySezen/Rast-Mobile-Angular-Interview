@@ -1,5 +1,3 @@
-//Bu model dosyası genel api isteklerinde kullanılır.
-
 export interface General<T> {
     status: 'success' | 'error';
     message: string;
@@ -12,9 +10,11 @@ export interface Auth<T> {
     token: string;
 }
 
-
 export interface QueryPageSize {
     page?: number;
     size?: number;
 }
 
+export interface TokenModel<T> {
+    valid?: boolean
+}

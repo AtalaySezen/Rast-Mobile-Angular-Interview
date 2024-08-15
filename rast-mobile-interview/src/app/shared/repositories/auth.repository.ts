@@ -63,7 +63,7 @@ export class AuthRepository {
 
     CheckTokenIsValid() {
         this.authService.TokenIsValid().subscribe({
-            next: async (data: any) => {
+            next: async (data) => {
                 if (data.valid == true) {
                     return true;
                 } else {
