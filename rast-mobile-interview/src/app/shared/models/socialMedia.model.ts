@@ -4,6 +4,7 @@ export interface SocialMediaModel {
     url: string;
     description: string;
     createdAt: string;
+    [key: string]: string | undefined;
 }
 
 export interface SocialMediaModelEdit {

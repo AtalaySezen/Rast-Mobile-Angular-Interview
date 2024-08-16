@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="container-table">
     <div class="table-wrapper">
         <!-- Filtreleme -->
         <div class="table-filter-container">
@@ -27,6 +27,28 @@
             </div>
         </div>
         <!-- Filtreleme -->
-
+        <!-- Tablo -->
+        <div class="table-content" *ngIf="tableData.length>0">
+            <table class="table-social-media">
+                <thead class="thead-social-media">
+                    <tr class="table-row-media">
+                        <th class="table-header" *ngFor="let column of columns">
+                            <div class="table-header-content">
+                                {{ column.header }}
+                                <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
+                                <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row" *ngFor="let row of tableData">
+                        <td class="table-data" *ngFor="let column of columns">
+                            {{ row[column.key] }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
