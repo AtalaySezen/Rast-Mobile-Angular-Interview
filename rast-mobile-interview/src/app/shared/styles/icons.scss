@@ -133,3 +133,19 @@
     height: 2px;
     background-image: url('data:image/svg+xml,<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1L1 0.999999" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>');
 }
+
+.icon-asc{
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 10px;
+    height: 20px;
+    background-image: url('data:image/svg+xml,<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.98602 5L4.98602 19" stroke="%23744BFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.78241 0.285875L0.900427 5.73587C0.523197 6.26547 0.901813 7 1.55203 7L8.42004 7C9.07025 7 9.44887 6.26547 9.07164 5.73587L5.18966 0.285875C5.08998 0.145929 4.88209 0.145929 4.78241 0.285875Z" fill="%23744BFC"/></svg>');
+}
+
+.icon-desc {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 10px;
+    height: 20px;
+    background-image: url('data:image/svg+xml,<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.98604 15L4.98604 1" stroke="%23C0B8DC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.18965 19.7141L9.07163 14.2641C9.44886 13.7345 9.07025 13 8.42003 13L1.55202 13C0.901807 13 0.523193 13.7345 0.900422 14.2641L4.7824 19.7141C4.88208 19.8541 5.08997 19.8541 5.18965 19.7141Z" fill="%23C0B8DC"/></svg>');
+}
