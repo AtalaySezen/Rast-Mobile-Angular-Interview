@@ -4,15 +4,7 @@
     </div>
     <div class="layout-content">
         <div class="container">
-            @for (item of homeRepository.socialMediasArray; track $index) {
-            <p (click)="navigateToEditPage(item._id)">{{item._id}}</p>
-            <p>{{item.name}}</p>
-            <p>{{item.description}}</p>
-            <button class="btn" (click)="getSocialMediaWithID(item._id)">ID İle Al Test</button>
-            <br>
-            <button class="btn" (click)="deleteSocialMedia(item._id)">Sil Test</button>
-            <hr>
-            }
+            <app-table></app-table>
         </div>
     </div>
 </main>

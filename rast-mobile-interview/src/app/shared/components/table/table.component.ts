@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-table',
@@ -11,5 +10,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './table.component.scss'
 })
 export class TableComponent {
+  filterText: string = '';
+
+  ngOnInit() {
+
+  }
+
+
+
 
 }

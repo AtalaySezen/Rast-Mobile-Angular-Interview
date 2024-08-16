@@ -1,0 +1,132 @@
+@import "../../styles/var.scss";
+@import "../../styles/typography.scss";
+
+.table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding-top: 44px;
+
+    .table-wrapper {
+        width: 100%;
+        max-width: 1429px;
+    }
+
+    .table-filter-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 11px;
+    }
+
+    .search-filter-flex {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 9px;
+
+        .search-filter-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            background-color: $bg-white;
+            border-radius: 39px;
+            width: 100%;
+            max-width: 380px;
+
+            .search-input {
+                width: 100%;
+                max-width: 335px;
+                border: none;
+                background: transparent;
+                margin: 0;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                color: $filter-input-color;
+                @include search-font;
+                padding: 6px 0 6px 29px;
+
+                &::placeholder {
+                    color: $filter-input-color;
+                }
+            }
+
+            /*Input type search ile gelen varsayılan ikonu kaldırır.*/
+            .search-input::-webkit-search-cancel-button {
+                -webkit-appearance: none;
+                appearance: none;
+            }
+
+            .search-input::-ms-clear {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+
+            .search-input::-webkit-search-decoration,
+            .search-input::-webkit-search-results-decoration,
+            .search-input::-webkit-search-results-button {
+                display: none;
+            }
+            /*Input type search ile gelen varsayılan ikonu kaldırır.*/
+
+            .search-icon-purple {
+                overflow: hidden;
+                width: 45px;
+                padding: 14px;
+                height: 42px;
+                background-color: $bg-purple;
+                border-radius: 0 39px 39px 0;
+                cursor: pointer;
+            }
+
+            .button-clear {
+                position: absolute;
+                right: 4rem;
+            }
+        }
+
+        .filter-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            width: 49px;
+            height: 42px;
+            border-radius: 29px;
+            background-color: $bg-white;
+        }
+    }
+
+    .btn-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        .btn-plus-icons {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .position-vertical,
+        .position-horizontal {
+            display: block;
+        }
+
+        .position-vertical {
+            margin-right: -5px;
+        }
+
+        .position-horizontal {
+            margin-left: -2px;
+        }
+    }
+}

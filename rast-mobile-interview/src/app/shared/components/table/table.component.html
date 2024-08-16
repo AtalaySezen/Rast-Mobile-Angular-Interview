@@ -1,0 +1,32 @@
+<div class="table-container">
+    <div class="table-wrapper">
+        <!-- Filtreleme -->
+        <div class="table-filter-container">
+            <div class="search-filter-flex">
+                <div class="search-filter-container">
+                    <input class="search-input" [(ngModel)]="filterText" type="search" placeholder="Search Objects...">
+                    <button class="button-clear" *ngIf="filterText" (click)="filterText = ''">
+                        <div class="icon-close-sm"></div>
+                    </button>
+                    <button class="search-icon-purple">
+                        <div class="icon-search"></div>
+                    </button>
+                </div>
+                <button class="filter-icon">
+                    <div class="icon-filter-table"></div>
+                </button>
+            </div>
+            <div>
+                <button class="btn-purple btn-center">
+                    <div class="btn-plus-icons">
+                        <div class="icon-vertical position-vertical"></div>
+                        <div class="icon-horizontal position-horizontal"></div>
+                    </div>
+                    Yeni Hesap Ekle
+                </button>
+            </div>
+        </div>
+        <!-- Filtreleme -->
+
+    </div>
+</div>

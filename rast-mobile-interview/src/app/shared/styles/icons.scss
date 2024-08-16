@@ -4,7 +4,7 @@
     width: 9px;
     height: 14px;
 }
-@mixin icon-pagination{
+@mixin icon-pagination {
     background-repeat: no-repeat;
     background-size: cover;
     width: 10px;
@@ -84,6 +84,11 @@
     background-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="%2333363F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="%2333363F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
 
+.icon-close-sm {
+    @include icon-16();
+    background-image: url('data:image/svg+xml,<svg viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3 21.32L21 3.32001" stroke="%23744bfc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 3.32001L21 21.32" stroke="%23744bfc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>');
+}
+
 .icon-left-gray {
     @include icon-custom;
     background-image: url('data:image/svg+xml, <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 13L2 7L8 0.999999" stroke="%23C9C9C9" stroke-width="2" /></svg>');
@@ -102,4 +107,29 @@
 .icon-pagination-decrease {
     @include icon-pagination();
     background-image: url('data:image/svg+xml,<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.18964 6.71413L9.07162 1.26413C9.44885 0.734529 9.07023 -3.953e-08 8.42002 -6.80313e-08L1.55201 -3.69083e-07C0.901792 -3.97584e-07 0.523177 0.73453 0.900407 1.26413L4.78239 6.71413C4.88207 6.85407 5.08996 6.85407 5.18964 6.71413Z" fill="%23744BFC"/></svg>');
+}
+
+.icon-search {
+    @include icon-16();
+    background-image: url('data:image/svg+xml, <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.6 16.2C12.7974 16.2 16.2 12.7974 16.2 8.6C16.2 4.40263 12.7974 1 8.6 1C4.40263 1 1 4.40263 1 8.6C1 12.7974 4.40263 16.2 8.6 16.2Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.6 17L15 15.4" stroke="white" stroke-linecap="round" stroke-linejoin="round" /></svg>');
+}
+.icon-filter-table {
+    @include icon-16();
+    background-image: url('data:image/svg+xml, <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 1C16 0.447715 15.5523 0 15 0H1C0.447715 0 0 0.447715 0 1V2.58579C0 2.851 0.105357 3.10536 0.292893 3.29289L4.7071 7.7071C4.89464 7.89464 4.99999 8.14899 4.99999 8.41421V15.3063C4.99999 15.6476 5.33434 15.8886 5.65811 15.7806L10.6581 14.114C10.8623 14.0459 11 13.8548 11 13.6396V8.41422C11 8.149 11.1054 7.89465 11.2929 7.70711L15.7071 3.29289C15.8946 3.10536 16 2.851 16 2.58579V1Z" fill="%23744BFC" /></svg>');
+}
+
+.icon-vertical {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2px;
+    height: 14px;
+    background-image: url('data:image/svg+xml, <svg width="2" height="14" viewBox="0 0 2 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L1 13" stroke="white" stroke-width="2" stroke-linecap="round" /></svg>');
+}
+
+.icon-horizontal {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 14px;
+    height: 2px;
+    background-image: url('data:image/svg+xml,<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1L1 0.999999" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>');
 }
