@@ -1,3 +1,16 @@
+@mixin icon-custom {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 9px;
+    height: 14px;
+}
+@mixin icon-pagination{
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 10px;
+    height: 7px;
+}
+
 @mixin icon-16 {
     background-repeat: no-repeat;
     background-size: cover;
@@ -69,4 +82,24 @@
 .icon-close-dialog {
     @include icon-xl();
     background-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="%2333363F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="%2333363F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+.icon-left-gray {
+    @include icon-custom;
+    background-image: url('data:image/svg+xml, <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 13L2 7L8 0.999999" stroke="%23C9C9C9" stroke-width="2" /></svg>');
+}
+
+.icon-right-purple {
+    @include icon-custom;
+    background-image: url('data:image/svg+xml,<svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 0.999999L7 7L0.999999 13" stroke="%23744BFC" stroke-width="2"/></svg>');
+}
+
+.icon-pagination-increase {
+    @include icon-pagination();
+    background-image: url('data:image/svg+xml,<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.78241 0.285875L0.900427 5.73587C0.523197 6.26547 0.901813 7 1.55203 7L8.42004 7C9.07025 7 9.44887 6.26547 9.07164 5.73587L5.18966 0.285875C5.08998 0.145929 4.88209 0.145929 4.78241 0.285875Z" fill="%23744BFC"/></svg>');
+}
+
+.icon-pagination-decrease {
+    @include icon-pagination();
+    background-image: url('data:image/svg+xml,<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.18964 6.71413L9.07162 1.26413C9.44885 0.734529 9.07023 -3.953e-08 8.42002 -6.80313e-08L1.55201 -3.69083e-07C0.901792 -3.97584e-07 0.523177 0.73453 0.900407 1.26413L4.78239 6.71413C4.88207 6.85407 5.08996 6.85407 5.18964 6.71413Z" fill="%23744BFC"/></svg>');
 }

@@ -55,6 +55,30 @@
     line-height: 19.5px;
 }
 
+@mixin table-header {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.5px;
+}
+
+@mixin table-row {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+}
+
+@mixin pagination-item-md {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+@mixin pagination-item-sm {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
 .error-message {
     @include error-message;
 }
