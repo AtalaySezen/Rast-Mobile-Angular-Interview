@@ -6,11 +6,10 @@ import { AuthRepository } from '../repositories/auth.repository';
 
 export const apiInterceptor: HttpInterceptorFn = (request, next) => {
     const authRepo = inject(AuthRepository);
-    const authLocalStorageToken = authRepo.authLocalStorageToken;
+    const token = authRepo.token; //Auth.repository.ts dosyasından tokeni alır.
 
-    //#region istek atılan url auth/login ya da auth/register içeriyor mu kontrol eder, içermiyorsa eğer token'i alır. 
+    //#region istek atılan url auth/login ya da auth/register içeriyor mu kontrol eder, içermiyorsa eğer token'i alır.      
     if (!request.url.includes('auth/login') && !request.url.includes('auth/register')) {
-        const token = localStorage.getItem(`${authLocalStorageToken}`) || sessionStorage.getItem(`${authLocalStorageToken}`) || '';
         if (token) {
             request = request.clone({
                 setHeaders: { Authorization: `Bearer ${token}` }
