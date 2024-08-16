@@ -6,8 +6,8 @@ export interface SocialMediaModel {
     createdAt: string;
 }
 
-export interface SocialMediaModelDialog {
-    id?:string,
+export interface SocialMediaModelEdit {
+    id?: string,
     name: string;
     url: string;
     description: string;
@@ -18,3 +18,13 @@ export interface SocialMediaData {
     totalPages: number;
     totalItemCount: number;
 }
+
+export interface EditSocialMediaData {
+    id?: string,
+    name: string;
+    url: string;
+    description: string;
+    status?: 'success' | 'error';
+    message?: '';
+}
+

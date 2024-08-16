@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { General, QueryPageSize } from '../models/generals.model';
 import { environment } from '../../../environments/environment';
-import { SocialMediaData, SocialMediaModel } from '../models/socialMedia.model';
+import { EditSocialMediaData, SocialMediaData, SocialMediaModel, SocialMediaModelEdit } from '../models/socialMedia.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,8 @@ export class DataService {
     return this.http.delete<General<SocialMediaModel>>(environment.apiUrl + `socialMedia/${id}`);
   }
 
-
+  UpdateSocialMedia(id: string, data: EditSocialMediaData): Observable<General<SocialMediaModelEdit>> {
+    return this.http.put<General<SocialMediaModelEdit>>(environment.apiUrl + `socialMedia/${id}`, data);
+  }
 
 }

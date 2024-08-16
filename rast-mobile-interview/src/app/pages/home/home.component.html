@@ -3,11 +3,9 @@
         <app-header></app-header>
     </div>
     <div class="layout-content">
-        <app-dialog *ngIf="dialogService.dialogIsOpen"></app-dialog>
         <div class="container">
             @for (item of homeRepository.socialMediasArray; track $index) {
-            <button (click)="openDialog(item._id,item.url,item.name,item.description)">Dialog Aç</button>
-            <p>{{item._id}}</p>
+            <p (click)="navigateToEditPage(item._id)">{{item._id}}</p>
             <p>{{item.name}}</p>
             <p>{{item.description}}</p>
             <button class="btn" (click)="getSocialMediaWithID(item._id)">ID İle Al Test</button>

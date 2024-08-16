@@ -2,20 +2,19 @@ import { Component, inject } from '@angular/core';
 import { HeaderComponent } from "../../shared/components/header/header.component";
 import { HomeRepository } from '../../shared/repositories/home.repository';
 import { CommonModule } from '@angular/common';
-import { DialogComponent } from "../../shared/components/dialog/dialog.component";
-import { DialogService } from '../../shared/services/dialog.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
-    imports: [HeaderComponent, CommonModule, DialogComponent]
+    imports: [HeaderComponent, CommonModule]
 })
 export class HomeComponent {
     homeRepository = inject(HomeRepository);
-    dialogService = inject(DialogService);
-
+    router = inject(Router);
+    
     ngOnInit() {
         this.getSocialMediaDatas();
     }
@@ -35,16 +34,8 @@ export class HomeComponent {
         }
     }
 
-    openDialog(id: string, socialMediaUrl: string, socialMediaName: string, description: string) {
-        this.dialogService.dialogData = {
-            id: id,
-            socialMediaUrl: socialMediaUrl,
-            socialMediaName: socialMediaName,
-            description: description
-        };
-        this.dialogService.dialogIsOpen = true;
+    navigateToEditPage(id: string) {
+        this.router.navigate(['/edit', id]);
     }
-
-
 
 }

@@ -1,0 +1,64 @@
+<main class="layout-main">
+    <div>
+        <app-header></app-header>
+    </div>
+    <div class="layout-content">
+        <div class="edit-content">
+            <div class="flex-edit-close ">
+                <button class="btn-close-edit" (click)="closePage()">
+                    <div class="icon-close-edit"></div>
+                </button>
+            </div>
+            <form [formGroup]="editForm" class="edit-form">
+                <div class="form-field-edit"
+                    [class.error]="(editForm.get('url')?.hasError('required') || editForm.get('url')?.hasError('pattern')) &&  (editForm.get('url')?.touched || editForm.get('url')?.dirty)">
+                    <label class="label-edit">Sosyal Medya Linki</label>
+                    <input class="input-edit" type="text" formControlName="url" />
+                    @if (editForm.get('url')?.hasError('required') &&
+                    (editForm.get('url')?.touched ||
+                    editForm.get('url')?.dirty)) {
+                    <span class="hint error-message">Bu alan zorunludur</span>
+                    } @else if (editForm.get('url')?.hasError('pattern') &&
+                    (editForm.get('url')?.touched ||
+                    editForm.get('url')?.dirty)) {
+                    <span class="hint error-message">Lütfen geçerli url giriniz.</span>
+                    }
+                </div>
+                <div class="form-field-edit"
+                    [class.error]="(editForm.get('name')?.hasError('required') || editForm.get('name')?.hasError('minlength')) &&  (editForm.get('name')?.touched || editForm.get('name')?.dirty)">
+                    <label class="label-edit">Sosyal Medya Adı</label>
+                    <input class="input-edit" type="text" formControlName="name" />
+                    @if (editForm.get('name')?.hasError('required') &&
+                    (editForm.get('name')?.touched
+                    ||
+                    editForm.get('name')?.dirty)) {
+                    <span class="hint error-message">Bu alan zorunludur</span>
+                    } @else if (editForm.get('name')?.hasError('minlength') &&
+                    (editForm.get('name')?.touched ||
+                    editForm.get('name')?.dirty)) {
+                    <span class="hint error-message">Lütfen en az 3 karakter giriniz.</span>
+                    }
+                </div>
+                <div class="form-field-edit"
+                    [class.error]="(editForm.get('description')?.hasError('required') || editForm.get('description')?.hasError('minlength')) &&  (editForm.get('description')?.touched || editForm.get('description')?.dirty)">
+                    <label class="label-edit">Açıklama</label>
+                    <input class="input-edit" type="text" formControlName="description" />
+                    @if (editForm.get('description')?.hasError('required') && (editForm.get('description')?.touched
+                    ||
+                    editForm.get('description')?.dirty)) {
+                    <span class="hint error-message">Bu alan zorunludur</span>
+                    } @else if (editForm.get('description')?.hasError('minlength') &&
+                    (editForm.get('description')?.touched ||
+                    editForm.get('description')?.dirty)) {
+                    <span class="hint error-message">Lütfen en az 3 karakter giriniz.</span>
+                    }
+                </div>
+                <div class="btn-flex-edit">
+                    <button class="btn-sm-light-purple" (click)="closePage()">Vazgeç</button>
+                    <button class="btn-sm-purple" type="submit" (click)="saveSocialMedia()"
+                        [class.btn-loader]="editRepository.loading">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
