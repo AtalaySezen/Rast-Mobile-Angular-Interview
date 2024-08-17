@@ -1,4 +1,5 @@
 <div class="container-table">
+    <app-dialog></app-dialog>
     <div class="table-wrapper">
         <!-- Filtreleme -->
         <div class="table-filter-container">
@@ -17,7 +18,7 @@
                 </button>
             </div>
             <div>
-                <button class="btn-purple btn-center">
+                <button class="btn-purple btn-center" (click)="addNewSocialMedia()">
                     <div class="btn-plus-icons">
                         <div class="icon-vertical position-vertical"></div>
                         <div class="icon-horizontal position-horizontal"></div>
@@ -50,7 +51,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="table-warn-message" *ngIf="tableData.length == 0">
+        <div class="table-warn-message" *ngIf="tableData.length ==0">
             <img class="rast-mobile-logo" width="100" height="100" src="assets/images/rast-mobile-logo.webp"
                 loading="eager" role="presentation" alt="Rast Mobile Logo">
             <p>Şu ana kadar hiç sosyal medya verisi eklemediniz.</p>
