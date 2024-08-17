@@ -8,11 +8,13 @@
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    padding-top: 44px;
 
     .table-wrapper {
         width: 100%;
         max-width: 1429px;
+        @media (max-width: 1429px) {
+            max-width: 1244px;
+        }
     }
 
     .table-filter-container {
@@ -54,8 +56,6 @@
                 max-width: 335px;
                 border: none;
                 background: transparent;
-                margin: 0;
-                font-size: 14px;
                 border: none;
                 outline: none;
                 color: $filter-input-color;
@@ -144,20 +144,43 @@
         overflow: hidden;
         border: 1px solid $border-light-gray;
 
+        @media (max-width: 768px) {
+            overflow-x: scroll;
+        }
+        /*Mobil Cihazlarda Gözükecek Olan Tablo Scroll Renklerini Özelleştirme */
+        &::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: $bg-white;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $bg-purple;
+            border-radius: 10px;
+        }
+        /*Mobil Cihazlarda Gözükecek Olan Tablo Scroll Renklerini Özelleştirme */
+
         .table-social-media {
             width: 100%;
             table-layout: fixed;
             border-collapse: collapse;
-            margin: 0;
 
             .table-header {
                 padding: 10px;
                 text-align: left;
                 background-color: $bg-white;
                 border-bottom: 1px solid $border-table;
+
                 &:nth-child(1),
                 &:nth-child(2) {
                     border-right: 1px solid $border-table;
+                }
+
+                @media (max-width: 768px) {
+                    width: 170px;
                 }
             }
 

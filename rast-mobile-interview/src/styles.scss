@@ -28,6 +28,16 @@ body {
     height: 100%;
 }
 
+.container {
+    background: $bg-home-linear-gradient;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    max-width: 1581px;
+    padding: 2.75rem 0;
+    text-align: center;
+}
+
 .btn-loader:before {
     content: "";
     position: absolute;
