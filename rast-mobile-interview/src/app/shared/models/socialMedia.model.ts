@@ -8,7 +8,7 @@ export interface SocialMediaModel {
 }
 
 export interface SocialMediaModelEdit {
-    id?: string,
+    id?: string;
     name: string;
     url: string;
     description: string;
@@ -21,7 +21,7 @@ export interface SocialMediaData {
 }
 
 export interface EditSocialMediaData {
-    id?: string,
+    id?: string;
     name: string;
     url: string;
     description: string;
@@ -29,3 +29,11 @@ export interface EditSocialMediaData {
     message?: '';
 }
 
+export interface PostSocialMediaData {
+    url: string;
+    name: string;
+    description: string;
+    status?:string;
+    message?:string
+    
+}
