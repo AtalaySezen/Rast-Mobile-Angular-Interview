@@ -45,4 +45,48 @@
         color: $text-gray;
         user-select: none;
     }
+
+    .update-row-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 23px;
+        .custom-select-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 37px;
+            border-radius: 39px;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid $border-light-purple;
+            background-color: $bg-white;
+            @include pagination-item-sm;
+
+            select {
+                width: 90px;
+                height: 37px;
+                padding-left: 14px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                appearance: none;
+                @include pagination-item-sm;
+                color: $font-black;
+                cursor: pointer;
+            }
+
+            .arrows {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3px;
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+            }
+        }
+    }
 }

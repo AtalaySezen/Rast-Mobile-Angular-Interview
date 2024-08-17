@@ -1,6 +1,18 @@
 <div class="flex-pagination-item">
-    <div>
+    <div class="update-row-flex">
         <span class="purple-text text-select-row">Show:</span>
+        <div class="custom-select-box">
+            <select (change)="updateTableRows()" [(ngModel)]="rowValue">
+                @for (item of itemsOptions; track $index) {
+                <option [value]="item">{{item}} Rows</option>
+                }
+                <option [value]="0">All Rows</option>
+            </select>
+            <div class="arrows">
+                <div class="icon-pagination-increase" (click)="increaseSize()"></div>
+                <div class="icon-pagination-decrease" (click)="decreaseSize()"></div>
+            </div>
+        </div>
     </div>
     <div class="pagination-arrows-flex">
         <button class="btn-pagination" (click)="previousPage()" [disabled]="homeRepository.currentPage === 1">
