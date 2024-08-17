@@ -1,0 +1,19 @@
+<div class="flex-pagination-item">
+    <div>
+        <span class="purple-text text-select-row">Show:</span>
+    </div>
+    <div class="pagination-arrows-flex">
+        <button class="btn-pagination" (click)="previousPage()" [disabled]="homeRepository.currentPage === 1">
+            <div class="icon-left-gray"></div>
+        </button>
+        <div class="currentPage-box">
+            <span class="pagination-text-sm currentPage-text">{{ homeRepository.currentPage }}</span>
+        </div>
+        <span class="pagination-text-sm text-gray">of</span>
+        <span class="pagination-text-sm purple-text">{{ homeRepository.totalPageCount }}</span>
+        <button class="btn-pagination" (click)="nextPage()"
+            [disabled]="homeRepository.currentPage === homeRepository.totalPageCount">
+            <div class="icon-right-purple"></div>
+        </button>
+    </div>
+</div>

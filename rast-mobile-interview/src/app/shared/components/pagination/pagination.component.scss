@@ -1,0 +1,48 @@
+@import "../../styles/var.scss";
+@import "../../styles/typography.scss";
+
+.flex-pagination-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .pagination-arrows-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .pagination-text-sm {
+        @include pagination-item-sm;
+    }
+
+    .purple-text {
+        color: $bg-purple;
+    }
+
+    .text-select-row {
+        @include pagination-item-md;
+    }
+
+    .currentPage-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bg-white;
+        border: 1px solid $border-light-gray;
+        user-select: none;
+        width: 21px;
+        height: 25px;
+        border-radius: 4px;
+        .currentPage-text {
+            color: $font-black;
+        }
+    }
+
+    .text-gray {
+        color: $text-gray;
+        user-select: none;
+    }
+}

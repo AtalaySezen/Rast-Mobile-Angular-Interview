@@ -13,14 +13,18 @@ export class HomeRepository {
     toastrService = inject(ToastrService);
 
     socialMediasArray: SocialMediaModel[] = [];
-    page: number = 1;
-    size: number = 4;
+    currentPage: number = 1;
+    dataSize: number = 4;
+    totalItemCount: number = 0;
+    totalPageCount: number = 0;
 
     GetSocialMediaDatas() {
-        this.DataService.GetSocialMediaPagination({ page: this.page, size: this.size }).subscribe({
+        this.DataService.GetSocialMediaPagination({ page: this.currentPage, size: this.dataSize }).subscribe({
             next: (data: General<SocialMediaData>) => {
                 if (data.status === 'success' && data.data) {
                     this.socialMediasArray = data.data.socialMedia;
+                    this.totalItemCount = data.data.totalItemCount;
+                    this.totalPageCount = data.data.totalPages;
                 } else {
                     this.toastrService.show(data.message, ToastType.Error);
                 }
