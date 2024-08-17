@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { PostSocialMediaData } from '../../models/socialMedia.model';
 import { HomeRepository } from '../../repositories/home.repository';
+import { ToastType, ToastrService } from '../../services/toastr.service';
 
 @Component({
   selector: 'app-dialog',
@@ -14,6 +15,7 @@ import { HomeRepository } from '../../repositories/home.repository';
 export class DialogComponent {
   @Output() closeEvent = new EventEmitter<void>();
   homeRepository = inject(HomeRepository);
+  toastrService = inject(ToastrService);
 
   dataID: string = '';
   dialogIsOpen: boolean = false;
@@ -31,6 +33,7 @@ export class DialogComponent {
 
   saveDialog() {
     if (this.dialogForm.invalid) {
+      this.toastrService.show('Eksik Alanlar Var', ToastType.Warning);
       return;
     }
 
@@ -46,5 +49,7 @@ export class DialogComponent {
       this.closeDialog();
     }
   }
+
+
 
 }
