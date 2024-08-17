@@ -6,9 +6,10 @@ const router = express.Router();
 
 router.post("/", authMiddleware, async (req, res) => {
   const { name, url, description } = req.body;
+  const userId = req.user.id;
 
   try {
-    const newSocialMedia = new SocialMedia({ name, url, description });
+    const newSocialMedia = new SocialMedia({ name, url, description, userId });
     await newSocialMedia.save();
     res.status(201).json({
       status: "success",
@@ -24,24 +25,25 @@ router.post("/", authMiddleware, async (req, res) => {
   }
 });
 
-// Veriyi pagination ile almak için
 router.get("/", authMiddleware, async (req, res) => {
-  const page = parseInt(req.query.page) || 1; // Varsayılan değer
+  const userId = req.user.id;
+  const page = parseInt(req.query.page) || 1; //Frontend tarafından parametre gelmez ise varsayılan değer
   const limit = parseInt(req.query.limit) || 10; //Frontend tarafından parametre gelmez ise varsayılan değer
 
   try {
     const skip = (page - 1) * limit;
-    const socialMedia = await SocialMedia.find().skip(skip).limit(limit);
+    const socialMedia = await SocialMedia.find({ userId })
+      .skip(skip)
+      .limit(limit);
 
-    const totalItems = await SocialMedia.countDocuments();
-
+    const totalItems = await SocialMedia.countDocuments({ userId });
     const totalPages = Math.ceil(totalItems / limit);
 
     res.json({
       status: "success",
       message: "",
       data: {
-        socialMedia,
+        socialMedia: socialMedia,
         totalPages: totalPages,
         totalItemCount: totalItems,
       },
@@ -56,18 +58,20 @@ router.get("/", authMiddleware, async (req, res) => {
 });
 
 router.get("/:id", authMiddleware, async (req, res) => {
+  const userId = req.user.id;
+  const { id } = req.params;
+
   try {
-    const socialMedia = await SocialMedia.findById(req.params.id);
-    if (!socialMedia) {
+    const socialMedia = await SocialMedia.findOne({ _id: id, userId });
+    if (!socialMedia)
       return res.status(404).json({
         status: "error",
         message: "Veri Bulunamadı",
         data: null,
       });
-    }
     res.json({
       status: "success",
-      message: "",
+      message: "Başarılı",
       data: socialMedia,
     });
   } catch (err) {
@@ -80,15 +84,17 @@ router.get("/:id", authMiddleware, async (req, res) => {
 });
 
 router.delete("/:id", authMiddleware, async (req, res) => {
+  const userId = req.user.id;
+  const { id } = req.params;
+
   try {
-    const socialMedia = await SocialMedia.findByIdAndDelete(req.params.id);
-    if (!socialMedia) {
+    const socialMedia = await SocialMedia.findOneAndDelete({ _id: id, userId });
+    if (!socialMedia)
       return res.status(404).json({
         status: "error",
         message: "Veri Bulunamadı",
         data: null,
       });
-    }
     res.json({
       status: "success",
       message: "Başarıyla Silindi",
@@ -105,21 +111,22 @@ router.delete("/:id", authMiddleware, async (req, res) => {
 
 router.put("/:id", authMiddleware, async (req, res) => {
   const { name, url, description } = req.body;
+  const userId = req.user.id;
+  const { id } = req.params;
 
   try {
-    const updatedSocialMedia = await SocialMedia.findByIdAndUpdate(
-      req.params.id,
+    const updatedSocialMedia = await SocialMedia.findOneAndUpdate(
+      { _id: id, userId },
       { name, url, description },
       { new: true, runValidators: true }
     );
 
-    if (!updatedSocialMedia) {
+    if (!updatedSocialMedia)
       return res.status(404).json({
         status: "error",
         message: "Veri Bulunamadı",
         data: null,
       });
-    }
 
     res.json({
       status: "success",
