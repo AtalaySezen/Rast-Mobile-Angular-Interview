@@ -1,6 +1,6 @@
 <div class="container-table">
     <app-dialog></app-dialog>
-    <div class="table-wrapper" *ngIf="tableDataFilterArray.length > 0">
+    <div class="table-wrapper" *ngIf="filteredTableData .length > 0">
         <!-- Filtreleme -->
         <div class="table-filter-container">
             <div class="search-filter-flex">
@@ -34,20 +34,20 @@
                 <thead class="thead-social-media">
                     <tr class="table-row-media" *ngIf="filterText == ''||tableData.length !=0">
                         <th class="table-header">
-                            <div class="table-header-content">
+                            <div class="table-header-content" (click)="sortTable('name')">
                                 Sosyal Medya Adı
                                 <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
                                 <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
                             </div>
                         </th>
-                        <th class="table-header">
+                        <th class="table-header" (click)="sortTable('url')">
                             <div class="table-header-content">
                                 Sosyal Medya Linki
                                 <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
                                 <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
                             </div>
                         </th>
-                        <th class="table-header">
+                        <th class="table-header" (click)="sortTable('description')">
                             <div class="table-header-content">
                                 Açıklama
                                 <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
@@ -91,7 +91,7 @@
         <!-- Pagination Componenti -->
         <app-pagination></app-pagination>
     </div>
-    <div class="table-warn-message" *ngIf="tableDataFilterArray.length === 0">
+    <div class="table-warn-message" *ngIf="filteredTableData .length === 0">
         <img class="rast-mobile-logo" width="100" height="100" src="assets/images/rast-mobile-logo.webp" loading="eager"
             role="presentation" alt="Rast Mobile Logo">
         <p>Şu ana kadar hiç sosyal medya verisi eklemediniz.</p>

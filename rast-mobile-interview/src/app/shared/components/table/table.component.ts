@@ -21,26 +21,45 @@ export class TableComponent implements OnChanges {
   HomeRepository = inject(HomeRepository);
   router = inject(Router);
 
-  tableDataFilterArray: SocialMediaModel[] = [];
+  filteredTableData: SocialMediaModel[] = [];
   dialogIsOpen: boolean = false;
   filterText: string = '';
+  sortField: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['tableData']) {
-      this.tableDataFilterArray = this.tableData;
+      this.filteredTableData = this.tableData;
     }
   }
 
   applyFilter() {
     if (this.filterText.trim() !== "") {
-      this.tableData = this.tableDataFilterArray.filter(item =>
+      this.tableData = this.filteredTableData.filter(item =>
         Object.values(item).some((val: any) => val.toString().toLowerCase().includes(this.filterText.toLowerCase()))
       );
     } else {
-      this.tableData = [...this.tableDataFilterArray];
+      this.tableData = [...this.filteredTableData];
     }
   }
+
+  sortTable(field: string) {
+    if (field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortDirection = 'asc';
+      this.sortField = field;
+    }
+
+    this.tableData.sort((a, b) => {
+      const valueA = (a[field as keyof SocialMediaModel] ?? '') as string;
+      const valueB = (b[field as keyof SocialMediaModel] ?? '') as string;
+      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }
+
 
   addNewSocialMedia() {
     this.dialogComponent.dialogIsOpen = true;
