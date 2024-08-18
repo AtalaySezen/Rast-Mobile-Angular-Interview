@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild, inject } from '@angular/core';
+import { Component, Input, OnChanges, QueryList, SimpleChanges, ViewChild, ViewChildren, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SocialMediaModel } from '../../models/socialMedia.model';
@@ -8,16 +8,19 @@ import { Router } from '@angular/router';
 import { HomeRepository } from '../../repositories/home.repository';
 import { TitlecasePipe } from '../../pipes/titlecase.pipe';
 import { NotFoundMessageComponent } from "../not-found-message/not-found-message.component";
+import { VisitedLinksComponent } from "../visited-links/visited-links.component";
+import { VisitedUrl } from '../../models/generals.model';
 
 @Component({
-    selector: 'app-table',
-    standalone: true,
-    templateUrl: './table.component.html',
-    styleUrls: ['./table.component.scss'],
-    imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent, TitlecasePipe, NotFoundMessageComponent]
+  selector: 'app-table',
+  standalone: true,
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
+  imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent, TitlecasePipe, NotFoundMessageComponent, VisitedLinksComponent]
 })
 export class TableComponent implements OnChanges {
   @ViewChild(DialogComponent) dialogComponent!: DialogComponent;
+  @ViewChild(VisitedLinksComponent) visitedLinksComponent!: VisitedLinksComponent;
   @Input() tableData: SocialMediaModel[] = [];
   HomeRepository = inject(HomeRepository);
   router = inject(Router);
@@ -63,6 +66,35 @@ export class TableComponent implements OnChanges {
     });
   }
 
+  //#region kullanıcı tabloda bulunan urlleri açmasını sağlar ve bu açılan linkleri açıldığı zaman ile localstorage'a kayıt eder.
+  openSocialMediaUrl(id: string, url: string) {
+    const urlData: VisitedUrl = {
+      id: id,
+      url: url,
+      date: new Date().toISOString()
+    };
+
+    const storedUrls = JSON.parse(localStorage.getItem('visitedSocialMediaUrls') || '[]');
+    const existingIndex = storedUrls.findIndex((item: { id: string }) => item.id === id);
+
+    if (existingIndex === -1) {
+      storedUrls.push(urlData);
+    } else {
+      storedUrls[existingIndex] = urlData;
+    }
+
+    localStorage.setItem('visitedSocialMediaUrls', JSON.stringify(storedUrls));
+    this.visitedLinksComponent.loadVisitedUrls();
+    window.open(url, '_blank');
+  }
+  //#endregion
+
+  //#region Link daha önce ziyaret edilmiş mi kontrol eder. 
+  isVisited(id: string): boolean {
+    const storedUrls = JSON.parse(localStorage.getItem('visitedSocialMediaUrls') || '[]');
+    return storedUrls.some((item: { id: string }) => item.id === id);
+  }
+  //#endregion
 
   addNewSocialMedia() {
     this.dialogComponent.dialogIsOpen = true;

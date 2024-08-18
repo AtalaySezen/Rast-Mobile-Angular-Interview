@@ -226,6 +226,11 @@
                 }
             }
 
+            .visited {
+                color: purple;
+                text-decoration: underline;
+            }
+
             .table-row-media {
                 background-color: $bg-white;
                 height: 63px;

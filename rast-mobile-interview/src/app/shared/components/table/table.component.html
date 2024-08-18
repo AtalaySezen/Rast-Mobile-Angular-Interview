@@ -62,7 +62,8 @@
                     <tbody>
                         @for (row of tableData; track $index) {
                         <tr class="table-row">
-                            <td class="table-data">{{ row.url }}</td>
+                            <td class="table-data" [ngClass]="{ 'visited': isVisited(row._id) }"
+                                (click)="openSocialMediaUrl(row._id,row.url)">{{ row.url }}</td>
                             <td class="table-data">{{ row.name|titleCase}}</td>
                             <td class="table-data">{{ row.description|titleCase}}</td>
                             <td class="table-data">
@@ -87,6 +88,7 @@
             </div>
             <!-- Pagination Componenti -->
             <app-pagination></app-pagination>
+            <app-visited-links></app-visited-links>
         </ng-container>
     </div>
     <div class="table-warn-message" *ngIf="noDataMessage">

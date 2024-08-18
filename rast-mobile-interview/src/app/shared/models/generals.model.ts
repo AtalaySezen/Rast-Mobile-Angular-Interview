@@ -19,3 +19,8 @@ export interface TokenModel<T> {
     valid?: boolean
 }
 
+export interface VisitedUrl {
+    id: string;
+    url: string;
+    date: string;
+  }
