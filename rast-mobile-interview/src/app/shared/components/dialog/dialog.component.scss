@@ -20,14 +20,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: $bg-dialog-white;
+    background-color: $bg-white;
     padding: 20px;
     border-radius: 8px;
     z-index: 1001;
-    width: 90%;
+    width: 100%;
+    max-width: 488px;
     height: 406px;
     border-radius: 13px;
     box-shadow: 0px 4px 16px 0px $dialog-box-shadow;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+
     @media (min-width: 768px) {
         max-width: 488px;
     }

@@ -12,12 +12,9 @@
     .table-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 23px;
+        gap: 11px;
         width: 100%;
-        max-width: 1429px;
-        @media (max-width: 1429px) {
-            max-width: 1244px;
-        }
+        max-width: 98vw;
     }
 
     .table-filter-container {
@@ -97,11 +94,9 @@
                 background-color: $bg-purple;
                 border-radius: 0 39px 39px 0;
                 cursor: pointer;
-            }
-
-            .button-clear {
-                position: absolute;
-                right: 4rem;
+                @media (max-width: 768px) {
+                    padding: 10px;
+                }
             }
         }
 
@@ -212,6 +207,7 @@
                 &:nth-child(2),
                 &:nth-child(3) {
                     border-right: 1px solid $border-table;
+                    padding: 0 1.6rem;
                 }
             }
             .search-not-found-message {
@@ -273,11 +269,5 @@
         height: 100%;
         gap: 24px;
         padding: 3rem 0;
-        .rast-mobile-logo {
-            border-radius: 24px;
-        }
-        .text-no-data {
-            @include header-font;
-        }
     }
 }

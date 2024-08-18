@@ -1,0 +1,9 @@
+@import "../../styles/var.scss";
+@import "../../styles/typography.scss";
+
+.rast-mobile-logo {
+    border-radius: 24px;
+}
+.text-no-data {
+    @include header-font;
+}

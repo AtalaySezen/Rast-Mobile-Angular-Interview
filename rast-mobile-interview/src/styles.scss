@@ -36,6 +36,9 @@ body {
     max-width: 1581px;
     padding: 2.75rem 0;
     text-align: center;
+    @media (max-width: 768px) {
+        padding: 2rem 0;
+    }
 }
 
 .btn-loader:before {
