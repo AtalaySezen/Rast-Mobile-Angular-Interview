@@ -27,17 +27,20 @@ router.post("/", authMiddleware, async (req, res) => {
 
 router.get("/", authMiddleware, async (req, res) => {
   const userId = req.user.id;
-  const page = parseInt(req.query.page) || 1; //Frontend tarafından parametre gelmez ise varsayılan değer
-  const limit = parseInt(req.query.limit) || 10; //Frontend tarafından parametre gelmez ise varsayılan değer
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit);
 
   try {
-    const skip = (page - 1) * limit;
+    const checkFetchAll = isNaN(limit) || limit <= 0;
+    const skip = checkFetchAll ? 0 : (page - 1) * limit;
+    const getLimit = checkFetchAll ? Number.MAX_SAFE_INTEGER : limit;
+
     const socialMedia = await SocialMedia.find({ userId })
       .skip(skip)
-      .limit(limit);
+      .limit(getLimit);
 
     const totalItems = await SocialMedia.countDocuments({ userId });
-    const totalPages = Math.ceil(totalItems / limit);
+    const totalPages = checkFetchAll ? 1 : Math.ceil(totalItems / limit);
 
     res.json({
       status: "success",
