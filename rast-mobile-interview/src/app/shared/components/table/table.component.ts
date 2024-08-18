@@ -6,13 +6,14 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { PaginationComponent } from '../pagination/pagination.component';
 import { Router } from '@angular/router';
 import { HomeRepository } from '../../repositories/home.repository';
+import { TitlecasePipe } from '../../pipes/titlecase.pipe';
 
 @Component({
   selector: 'app-table',
   standalone: true,
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent]
+  imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent, TitlecasePipe]
 })
 export class TableComponent implements OnChanges {
   @ViewChild(DialogComponent) dialogComponent!: DialogComponent;

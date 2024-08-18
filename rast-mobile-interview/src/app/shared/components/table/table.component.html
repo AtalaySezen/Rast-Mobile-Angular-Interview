@@ -64,9 +64,9 @@
                 <tbody>
                     @for (row of tableData; track $index) {
                     <tr class="table-row">
-                        <td class="table-data">{{ row.name }}</td>
+                        <td class="table-data">{{ row.name|titleCase}}</td>
                         <td class="table-data">{{ row.url }}</td>
-                        <td class="table-data">{{ row.description }}</td>
+                        <td class="table-data">{{ row.description|titleCase}}</td>
                         <td class="table-data">
                             <div class="actions">
                                 <button (click)="editSocialMediaData(row._id)">
