@@ -10,13 +10,14 @@ import { TitlecasePipe } from '../../pipes/titlecase.pipe';
 import { NotFoundMessageComponent } from "../not-found-message/not-found-message.component";
 import { VisitedLinksComponent } from "../visited-links/visited-links.component";
 import { VisitedUrl } from '../../models/generals.model';
+import { TooltipDirective } from '../../directives/tooltip.directive';
 
 @Component({
   selector: 'app-table',
   standalone: true,
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent, TitlecasePipe, NotFoundMessageComponent, VisitedLinksComponent]
+  imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent, TitlecasePipe, NotFoundMessageComponent, VisitedLinksComponent, TooltipDirective]
 })
 export class TableComponent implements OnChanges {
   @ViewChild(DialogComponent) dialogComponent!: DialogComponent;

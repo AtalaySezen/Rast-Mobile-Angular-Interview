@@ -68,10 +68,10 @@
                             <td class="table-data">{{ row.description|titleCase}}</td>
                             <td class="table-data">
                                 <div class="actions">
-                                    <button (click)="editSocialMediaData(row._id)">
+                                    <button appTooltip="Düzenle" (click)="editSocialMediaData(row._id)">
                                         <div class="icon-edit"></div>
                                     </button>
-                                    <button (click)="deleteSocialMediaData(row._id)">
+                                    <button appTooltip="Sil" (click)="deleteSocialMediaData(row._id)">
                                         <div class="icon-delete"></div>
                                     </button>
                                 </div>
