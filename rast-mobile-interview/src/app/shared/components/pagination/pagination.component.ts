@@ -12,8 +12,20 @@ import { FormsModule } from '@angular/forms';
 export class PaginationComponent {
   homeRepository = inject(HomeRepository);
 
-  rowValue: number = 4;
-  itemsOptions: number[] = [4, 8];
+  rowValue: number = 0;
+  itemsOptions: number[] = [];
+
+  ngOnInit() {
+    this.checkItemOptions();
+  }
+
+  //#region Burada dinamik şekilde show rows alanı güncellenir. Eğer 4'den az veri var ise kullanıcıya sadece "all rows" gösterilir. 
+  //4'den fazla olunca 4 seçeneği, 8'den fazla ise 8 gösterilir.
+  checkItemOptions() {
+    this.itemsOptions = [4, 8].filter(option => option <= Number(this.homeRepository.totalItemCount));
+    this.rowValue = this.homeRepository.totalItemCount >= 4 ? 4 : this.itemsOptions[0] || 0;
+  }
+  //#endregion
 
   ngOnDestroy() {
     this.homeRepository.currentPage = 1;
