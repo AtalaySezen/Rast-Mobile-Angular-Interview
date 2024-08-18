@@ -1,0 +1,61 @@
+@import "../../styles/var.scss";
+@import "../../styles/typography.scss";
+
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+    position: absolute;
+    width: 300px;
+    background-color: $bg-white;
+    border: 1px solid $border-gray;
+    padding: 1rem;
+    border-radius: 9px;
+    color: $font-black;
+    @media (max-width: 500px) {
+        width: 90%;
+        overflow: auto;
+    }
+    .accordion-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        cursor: pointer;
+        user-select: none;
+        width: 100%;
+    }
+    .header-accordion {
+        @include button-font;
+        color: $bg-purple;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid $border-gray;
+    }
+
+    .flex-text-accordion {
+        display: flex;
+        gap: 5px;
+        .text-accordion-url {
+            @include header-font;
+            color: $filter-input-color;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 200px;
+            max-width: 200px;
+            text-align: left;
+        }
+        .text-accordion-time {
+            @include pagination-item-md;
+            color: $filter-input-color;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .btn-accordion {
+        margin: 5px 0;
+    }
+}

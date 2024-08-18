@@ -21,6 +21,18 @@ button {
     }
 }
 
+.btn-md-purple {
+    background-color: $bg-purple;
+    width: 120px;
+    height: 37.02px;
+    color: $bg-white;
+    border-radius: 34px;
+    @include btn-sm-font;
+    &:disabled {
+        opacity: 0.4;
+    }
+}
+
 .btn-sm-purple {
     background-color: $bg-purple;
     width: 82.76px;

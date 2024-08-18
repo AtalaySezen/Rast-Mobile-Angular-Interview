@@ -85,7 +85,12 @@ export class TableComponent implements OnChanges {
 
     localStorage.setItem('visitedSocialMediaUrls', JSON.stringify(storedUrls));
     this.visitedLinksComponent.loadVisitedUrls();
-    window.open(url, '_blank');
+    //#region  Eğer kullanıcı urlyi https olmadan ekler ise otomatik olarak bu kod bloğu ekler.
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
+    //#endregion
+    window.open(url);
   }
   //#endregion
 

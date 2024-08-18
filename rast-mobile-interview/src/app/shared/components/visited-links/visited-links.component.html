@@ -1,0 +1,43 @@
+<div class="accordion-container" *ngIf="accordionOpen">
+    <button (click)="closeVisitedLinks()">
+        <div class="icon-close-sm"></div>
+    </button>
+    <div class="accordion-flex" (click)="toggleVisitedLinks()">
+        <h4 class="header-accordion">Son Gezdiğim Linkler</h4>
+        <button *ngIf="showVisitedLinks">
+            <div class="icon-hide"></div>
+        </button>
+        <button *ngIf="!showVisitedLinks">
+            <div class="icon-plus"></div>
+        </button>
+    </div>
+    <div class="visited-urls-container" *ngIf="showVisitedLinks">
+        <ng-container *ngIf="userVisitedUrls.length>0">
+            @for (item of userVisitedUrls.slice(0,showMaximumLinks); track $index) {
+            <div class="flex-text-accordion">
+                <p class="text-accordion-url">
+                    {{item.url}}
+                </p>
+                <p class="text-accordion-time">
+                    {{item.date|dateAgo}}
+                </p>
+            </div>
+            }
+        </ng-container>
+        <ng-container *ngIf="userVisitedUrls.length==0">
+            <div class="flex-text-accordion">
+                <p class="text-accordion-time">
+                    Hiç link ziyaret etmediniz.
+                </p>
+            </div>
+        </ng-container>
+        <div class="btn-accordion" *ngIf="totalLinksCount>5">
+            <button class="btn-md-purple" (click)="showMore()" *ngIf="totalLinksCount != showMaximumLinks">
+                Tümünü Göster
+            </button>
+            <button class="btn-md-purple" (click)="showLess()" *ngIf="totalLinksCount == showMaximumLinks">
+                Daha Az Göster
+            </button>
+        </div>
+    </div>
+</div>
