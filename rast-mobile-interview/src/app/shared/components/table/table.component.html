@@ -54,6 +54,11 @@
                                 <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
                             </div>
                         </th>
+                        <th class="table-header">
+                            <div class="table-header-content">
+                                İşlemler
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,6 +67,16 @@
                         <td class="table-data">{{ row.name }}</td>
                         <td class="table-data">{{ row.url }}</td>
                         <td class="table-data">{{ row.description }}</td>
+                        <td class="table-data">
+                            <div class="actions">
+                                <button (click)="editSocialMediaData(row._id)">
+                                    <div class="icon-edit"></div>
+                                </button>
+                                <button (click)="deleteSocialMediaData(row._id)">
+                                    <div class="icon-delete"></div>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     }
                     <tr class="table-row" *ngIf="tableData.length == 0&&filterText!= ''">
@@ -71,7 +86,6 @@
                         </td>
                     </tr>
                 </tbody>
-
             </table>
         </div>
         <!-- Pagination Componenti -->

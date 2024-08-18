@@ -36,27 +36,12 @@ export class HomeRepository {
         });
     }
 
-    GetSocialMediaWithID(id: string) {
-        this.DataService.GetSocialMediaWithID(id).subscribe({
-            next: (data: General<SocialMediaModel>) => {
-                if (data.status === 'success' && data.data) {
-                    console.log(data.data.name)
-                } else {
-                    this.toastrService.show(data.message, ToastType.Error);
-                }
-            },
-            error: (err) => {
-                console.error(err);
-                this.toastrService.show(err.message, ToastType.Error);
-            }
-        });
-    }
-
     DeleteSocialMediaData(id: string) {
         this.DataService.DeleteSocialMedia(id).subscribe({
             next: (data: General<SocialMediaModel>) => {
                 if (data.status == 'success') {
                     this.toastrService.show(data.message, ToastType.Success);
+                    this.currentPage = 1;
                     this.GetSocialMediaDatas();
                 } else {
                     this.toastrService.show(data.message, ToastType.Error);
@@ -85,9 +70,5 @@ export class HomeRepository {
             }
         })
     }
-
-
-
-
 
 }

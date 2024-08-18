@@ -15,28 +15,9 @@ import { TableComponent } from "../../shared/components/table/table.component";
 export class HomeComponent {
     homeRepository = inject(HomeRepository);
     router = inject(Router);
-    
+
     ngOnInit() {
-        this.getSocialMediaDatas();
-    }
-
-    getSocialMediaDatas() {
         this.homeRepository.GetSocialMediaDatas();
-    }
-
-    getSocialMediaWithID(id: string) {
-        this.homeRepository.GetSocialMediaWithID(id);
-    }
-
-    deleteSocialMedia(id: string) {
-        const confirmed = confirm('Silmek istediğinize emin misiniz?');
-        if (confirmed) {
-            this.homeRepository.DeleteSocialMediaData(id);
-        }
-    }
-
-    navigateToEditPage(id: string) {
-        this.router.navigate(['/edit', id]);
     }
 
 }

@@ -1,9 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SocialMediaModel } from '../../models/socialMedia.model';
 import { DialogComponent } from '../dialog/dialog.component';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { Router } from '@angular/router';
+import { HomeRepository } from '../../repositories/home.repository';
 
 @Component({
   selector: 'app-table',
@@ -13,8 +15,10 @@ import { PaginationComponent } from '../pagination/pagination.component';
   imports: [CommonModule, FormsModule, DialogComponent, PaginationComponent]
 })
 export class TableComponent implements OnChanges {
-  @Input() tableData: SocialMediaModel[] = [];
   @ViewChild(DialogComponent) dialogComponent!: DialogComponent;
+  @Input() tableData: SocialMediaModel[] = [];
+  HomeRepository = inject(HomeRepository);
+  router = inject(Router);
 
   tableDataFilterArray: SocialMediaModel[] = [];
   dialogIsOpen: boolean = false;
@@ -39,6 +43,14 @@ export class TableComponent implements OnChanges {
 
   addNewSocialMedia() {
     this.dialogComponent.dialogIsOpen = true;
+  }
+
+  editSocialMediaData(id: string) {
+    this.router.navigate(['/edit', id]);
+  }
+
+  deleteSocialMediaData(id: string) {
+    this.HomeRepository.DeleteSocialMediaData(id);
   }
 
 }

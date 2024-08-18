@@ -178,7 +178,8 @@
                 border-bottom: 1px solid $border-table;
 
                 &:nth-child(1),
-                &:nth-child(2) {
+                &:nth-child(2),
+                &:nth-child(3) {
                     border-right: 1px solid $border-table;
                 }
 
@@ -208,7 +209,8 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 &:nth-child(1),
-                &:nth-child(2) {
+                &:nth-child(2),
+                &:nth-child(3) {
                     border-right: 1px solid $border-table;
                 }
             }
@@ -250,6 +252,13 @@
 
             th {
                 cursor: pointer;
+            }
+
+            .actions {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
             }
         }
     }
