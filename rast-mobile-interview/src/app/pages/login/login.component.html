@@ -33,11 +33,9 @@
             </div>
             <div class="form-field flex-form-field">
                 <div class="flex-checkbox">
-                    <label for="rememberMe"
-                        (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni
+                    <label (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked">Beni
                         Hatırla</label>
-                    <input name="rememberMe"
-                        (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked"
+                    <input (click)="authRepository.rememberMeChecked = !authRepository.rememberMeChecked"
                         class="checkbox-input" [checked]="authRepository.rememberMeChecked" type="checkbox">
                 </div>
                 <a [routerLink]="['/register']">Hesap Oluştur</a>

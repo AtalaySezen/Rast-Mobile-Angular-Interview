@@ -17,6 +17,7 @@ export class HomeRepository {
     dataSize: number = 4;
     totalItemCount: number = 0;
     totalPageCount: number = 0;
+    showData: boolean = false;
 
     GetSocialMediaDatas() {
         this.DataService.GetSocialMediaPagination({ page: this.currentPage, size: this.dataSize }).subscribe({
@@ -25,6 +26,7 @@ export class HomeRepository {
                     this.socialMediasArray = data.data.socialMedia;
                     this.totalItemCount = data.data.totalItemCount;
                     this.totalPageCount = data.data.totalPages;
+                    this.showData = true;
                 } else {
                     this.toastrService.show(data.message, ToastType.Error);
                 }

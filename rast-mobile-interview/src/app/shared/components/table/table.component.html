@@ -1,6 +1,6 @@
 <div class="container-table">
     <app-dialog></app-dialog>
-    <div class="table-wrapper" *ngIf="filteredTableData .length > 0">
+    <div class="table-wrapper">
         <!-- Filtreleme -->
         <div class="table-filter-container">
             <div class="search-filter-flex">
@@ -29,69 +29,71 @@
             </div>
         </div>
         <!-- Tablo -->
-        <div class="table-content">
-            <table class="table-social-media">
-                <thead class="thead-social-media">
-                    <tr class="table-row-media" *ngIf="filterText == ''||tableData.length !=0">
-                        <th class="table-header">
-                            <div class="table-header-content" (click)="sortTable('name')">
-                                Sosyal Medya Adı
-                                <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
-                                <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
-                            </div>
-                        </th>
-                        <th class="table-header" (click)="sortTable('url')">
-                            <div class="table-header-content">
-                                Sosyal Medya Linki
-                                <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
-                                <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
-                            </div>
-                        </th>
-                        <th class="table-header" (click)="sortTable('description')">
-                            <div class="table-header-content">
-                                Açıklama
-                                <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
-                                <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
-                            </div>
-                        </th>
-                        <th class="table-header">
-                            <div class="table-header-content">
-                                İşlemler
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (row of tableData; track $index) {
-                    <tr class="table-row">
-                        <td class="table-data">{{ row.name|titleCase}}</td>
-                        <td class="table-data">{{ row.url }}</td>
-                        <td class="table-data">{{ row.description|titleCase}}</td>
-                        <td class="table-data">
-                            <div class="actions">
-                                <button (click)="editSocialMediaData(row._id)">
-                                    <div class="icon-edit"></div>
-                                </button>
-                                <button (click)="deleteSocialMediaData(row._id)">
-                                    <div class="icon-delete"></div>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    }
-                    <tr class="table-row" *ngIf="tableData.length == 0&&filterText!= ''">
-                        <td class="search-not-found-message">
-                            <p>Bu Kriterlerde Arama Sonucu Bulunamadı"{{filterText}}"
-                            </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- Pagination Componenti -->
-        <app-pagination></app-pagination>
+        <ng-container *ngIf="!noDataMessage">
+            <div class="table-content">
+                <table class="table-social-media">
+                    <thead class="thead-social-media">
+                        <tr class="table-row-media" *ngIf="filterText == ''||tableData.length !=0">
+                            <th class="table-header" (click)="sortTable('name')">
+                                <div class="table-header-content">
+                                    Sosyal Medya Adı
+                                    <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
+                                    <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
+                                </div>
+                            </th>
+                            <th class="table-header" (click)="sortTable('url')">
+                                <div class="table-header-content">
+                                    Sosyal Medya Linki
+                                    <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
+                                    <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
+                                </div>
+                            </th>
+                            <th class="table-header" (click)="sortTable('description')">
+                                <div class="table-header-content">
+                                    Açıklama
+                                    <div *ngIf="sortDirection === 'asc'" class="icon-asc"></div>
+                                    <div *ngIf="sortDirection === 'desc'" class="icon-desc"></div>
+                                </div>
+                            </th>
+                            <th class="table-header">
+                                <div class="table-header-content">
+                                    İşlemler
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (row of tableData; track $index) {
+                        <tr class="table-row">
+                            <td class="table-data">{{ row.name|titleCase}}</td>
+                            <td class="table-data">{{ row.url }}</td>
+                            <td class="table-data">{{ row.description|titleCase}}</td>
+                            <td class="table-data">
+                                <div class="actions">
+                                    <button (click)="editSocialMediaData(row._id)">
+                                        <div class="icon-edit"></div>
+                                    </button>
+                                    <button (click)="deleteSocialMediaData(row._id)">
+                                        <div class="icon-delete"></div>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                        <tr class="table-row" *ngIf="tableData.length == 0&&filterText!= ''">
+                            <td class="search-not-found-message">
+                                <p>Bu Kriterlerde Arama Sonucu Bulunamadı"{{filterText}}"
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Pagination Componenti -->
+            <app-pagination></app-pagination>
+        </ng-container>
     </div>
-    <div class="table-warn-message" *ngIf="filteredTableData .length === 0">
+    <div class="table-warn-message" *ngIf="noDataMessage">
         <img class="rast-mobile-logo" width="100" height="100" src="assets/images/rast-mobile-logo.webp" loading="eager"
             role="presentation" alt="Rast Mobile Logo">
         <p>Şu ana kadar hiç sosyal medya verisi eklemediniz.</p>

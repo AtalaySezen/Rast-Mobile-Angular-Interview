@@ -21,6 +21,7 @@ export class TableComponent implements OnChanges {
   HomeRepository = inject(HomeRepository);
   router = inject(Router);
 
+  noDataMessage: boolean = false;
   filteredTableData: SocialMediaModel[] = [];
   dialogIsOpen: boolean = false;
   filterText: string = '';
@@ -30,6 +31,7 @@ export class TableComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['tableData']) {
       this.filteredTableData = this.tableData;
+      this.noDataMessage = this.tableData.length === 0;
     }
   }
 

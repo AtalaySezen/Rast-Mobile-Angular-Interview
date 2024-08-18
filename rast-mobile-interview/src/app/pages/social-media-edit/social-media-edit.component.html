@@ -55,7 +55,7 @@
                 </div>
                 <div class="btn-flex-edit">
                     <button class="btn-sm-light-purple" (click)="closePage()">Vazgeç</button>
-                    <button class="btn-sm-purple" type="submit" (click)="saveSocialMedia()"
+                    <button class="btn-sm-purple" [disabled]="!editForm.valid" type="submit" (click)="saveSocialMedia()"
                         [class.btn-loader]="editRepository.loading">Kaydet</button>
                 </div>
             </form>

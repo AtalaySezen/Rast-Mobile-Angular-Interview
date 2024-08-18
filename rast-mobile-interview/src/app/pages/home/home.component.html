@@ -4,7 +4,7 @@
     </div>
     <div class="layout-content">
         <div class="container">
-            <app-table [tableData]="homeRepository.socialMediasArray"></app-table>
+            <app-table [tableData]="homeRepository.socialMediasArray" *ngIf="homeRepository.showData"></app-table>
         </div>
     </div>
 </main>

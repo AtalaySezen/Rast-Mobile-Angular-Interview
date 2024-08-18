@@ -28,6 +28,9 @@ button {
     color: $bg-white;
     border-radius: 34px;
     @include btn-sm-font;
+    &:disabled {
+        opacity: 0.4;
+    }
 }
 
 .btn-sm-light-purple {

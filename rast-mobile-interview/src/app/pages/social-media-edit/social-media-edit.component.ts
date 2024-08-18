@@ -23,8 +23,10 @@ export class SocialMediaEditComponent implements OnInit {
 
   socialMediaId: string = '';
   originalFormData: EditSocialMediaData = { url: '', name: '', description: '' };
+  urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+
   editForm = new FormGroup({
-    url: new FormControl('', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
+    url: new FormControl('', [Validators.required, Validators.pattern(this.urlRegex)]),
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
