@@ -13,7 +13,7 @@ export const apiInterceptor: HttpInterceptorFn = (request, next) => {
     //#region istek atılan url auth/login ya da auth/register içeriyor mu kontrol eder, içermiyorsa eğer token'i alır.      
     if (!request.url.includes('auth/login') && !request.url.includes('auth/register')) {
         if (token) {
-            loaderService.setLoading(true); //API isteği başlayınca loader gözükür.
+            loaderService.setLoading(true, request.url); //API isteği başlayınca loader gözükür.
             request = request.clone({
                 setHeaders: { Authorization: `Bearer ${token}` }
             });
