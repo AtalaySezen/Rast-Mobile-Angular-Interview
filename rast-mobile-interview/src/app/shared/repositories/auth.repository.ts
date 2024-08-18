@@ -86,6 +86,7 @@ export class AuthRepository {
     LogOut() {
         localStorage.removeItem(`${this.authLocalStorageToken}`);
         sessionStorage.removeItem(`${this.authLocalStorageToken}`);
+        localStorage.removeItem('visitedSocialMediaUrls');
         this.router.navigate(['/login']);
     }
 
