@@ -85,6 +85,12 @@
     line-height: 16.94px;
 }
 
+@mixin warning-not-found-font {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16.94px;
+}
+
 .error-message {
     @include error-message;
 }

@@ -212,6 +212,18 @@
                     border-right: 1px solid $border-table;
                 }
             }
+            .search-not-found-message {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                @include warning-not-found-font;
+                padding: 1rem 0;
+                color: $font-black;
+                p {
+                    width: 100%;
+                }
+            }
 
             .table-row-media {
                 background-color: $bg-white;
@@ -259,6 +271,4 @@
             @include header-font;
         }
     }
-
-  
 }
