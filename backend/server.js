@@ -11,6 +11,15 @@ const app = express();
 
 connectDB();
 
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/socialMedia", socialMediaRoutes);
+app.use("/api/token", tokenRoutes);
+
 app.get("/", (req, res) => {
   res.send(`
       <html>
@@ -34,14 +43,6 @@ app.get("/", (req, res) => {
       </html>
     `);
 });
-
-app.use(cors());
-app.use(express.json());
-
-//Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/socialMedia", socialMediaRoutes);
-app.use("/api/token", tokenRoutes);
 
 const PORT = process.env.PORT;
 
