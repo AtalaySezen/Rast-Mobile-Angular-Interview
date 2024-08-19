@@ -59,7 +59,7 @@ As users navigate the application, the token is sent with each HTTP request and 
 The frontend follows the repository pattern, organizing components, services, pipes, directives, models, and HTTP requests for cleaner code management.
 <br>
 <br>
-<img width="100%" height="500" src="https://github.com/user-attachments/assets/51868986-f325-4892-bf4b-2509482e2fd7">
+<img src="https://github.com/user-attachments/assets/51868986-f325-4892-bf4b-2509482e2fd7">
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
