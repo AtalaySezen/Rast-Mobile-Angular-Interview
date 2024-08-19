@@ -19,7 +19,7 @@ export class LoginComponent {
   passwordType: string = 'password';
 
   loginForm = new FormGroup({
-    email: new FormControl('user@example.com', [Validators.required, Validators.email]),
+    email: new FormControl('user@rastmobile.com', [Validators.required, Validators.email]),
     password: new FormControl('123456', [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
   });
 
