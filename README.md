@@ -9,42 +9,40 @@
     <a href="demolink.com.tr">View Demo</a>
   </p>
 </div>
-<details>
-  <summary>Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-      </ul>
-        <ul>
-        <li><a href="#backend-setup-nodejs">Backend Setup (Node.js)</a></li>
-        <li><a href="#frontend-setup-angular">Frontend Setup (Angular)</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#troubleshooting">Troubleshooting</a>
-      <ul>
-        <li><a href="#backend-issues">Backend Issues</a></li>
-      </ul>
-        <ul>
-        <li><a href="#frontend-issues">Frontend Issues</a></li>
-      </ul>
-    </li>
-    <li><a href="#frontend-features">Frontend Features</a></li>
-    <li><a href="#styles">Styles</a></li>
-     <li><a href="#usage">Usage</a></li>
-	<li><a href="#frontend-project-structure">Frontend Project Structure</a></li>
-	<li><a href="#backend-features">Backend Features</a></li>
-	<li><a href="#backend-project-structure">Backend Project Structure</a></li>
-  </ol>
-</details>
+<ol>
+  <li>
+    <a href="#about-the-project">About The Project</a>
+    <ul>
+      <li><a href="#built-with">Built With</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#getting-started">Getting Started</a>
+    <ul>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+    </ul>
+    <ul>
+      <li><a href="#backend-setup-nodejs">Backend Setup (Node.js)</a></li>
+      <li><a href="#frontend-setup-angular">Frontend Setup (Angular)</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#troubleshooting">Troubleshooting</a>
+    <ul>
+      <li><a href="#backend-issues">Backend Issues</a></li>
+    </ul>
+    <ul>
+      <li><a href="#frontend-issues">Frontend Issues</a></li>
+    </ul>
+  </li>
+  <li><a href="#frontend-features">Frontend Features</a></li>
+  <li><a href="#styles">Styles</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#frontend-project-structure">Frontend Project Structure</a></li>
+  <li><a href="#backend-features">Backend Features</a></li>
+  <li><a href="#backend-project-structure">Backend Project Structure</a></li>
+</ol>
+
 
 ## About The Project
 This project includes a backend built with Node.js and MongoDB, and a frontend developed using Angular 18. Users can manage their social media data, including adding, editing, and deleting entries.
