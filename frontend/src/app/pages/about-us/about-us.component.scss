@@ -1,0 +1,22 @@
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+
+    .rast-mobile-logo {
+        border-radius: 24px;
+    }
+
+    .header-about-us {
+        font-size: 24px;
+        font-weight: 500;
+        color: black;
+    }
+
+    .text-about-us {
+        max-width: 900px;
+        font-size: 15px;
+    }
+}

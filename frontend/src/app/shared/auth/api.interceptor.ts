@@ -33,7 +33,7 @@ export const apiInterceptor: HttpInterceptorFn = (request, next) => {
             if (err.status === 401 || err.status === 0) {
                 authRepo.LogOut();
             } else {
-                console.error('HTTP Error:', err.message);
+                console.error('HTTP Error:', 'Hata Oluştu');
             }
             return new Observable<HttpEvent<any>>(observer => {
                 observer.error(err);
