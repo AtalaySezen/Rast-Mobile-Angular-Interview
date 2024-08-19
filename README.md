@@ -343,6 +343,11 @@ Example Usage
 1. **Login and Register Pages**:
    - **Login**: Users can log in using their credentials on the Login page.
    - **Register**: New users can create an account on the Register page.
+   - Demo User Informations
+<br>
+Username : user@example.com
+<br>
+Passwword : 123456
 
 2. **Home Page**:
    - The Home page is the main interface users are directed to after logging in.
