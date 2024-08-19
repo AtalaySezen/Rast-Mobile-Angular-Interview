@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, QueryList, SimpleChanges, ViewChild, ViewChildren, inject } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SocialMediaModel } from '../../models/socialMedia.model';
@@ -111,7 +111,10 @@ export class TableComponent implements OnChanges {
   }
 
   deleteSocialMediaData(id: string) {
-    this.HomeRepository.DeleteSocialMediaData(id);
+    const isConfirmed = window.confirm('Silmek istediğinize emin misiniz?');
+    if (isConfirmed) {
+      this.HomeRepository.DeleteSocialMediaData(id);
+    }
   }
 
 }

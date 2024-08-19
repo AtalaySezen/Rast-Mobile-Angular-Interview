@@ -69,10 +69,8 @@ export class SocialMediaEditComponent implements OnInit {
       const hasChanges = this.checkDataValueChanges(data);
 
       if (hasChanges) {
-        console.log("Veriler güncellendi.");
         this.editRepository.UpdateSocialMedia(this.socialMediaId, data);
       } else {
-        console.log("Herhangi bir değişiklik yapılmadı.");
         this.closePage();
       }
     }

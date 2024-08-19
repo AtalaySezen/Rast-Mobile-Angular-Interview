@@ -119,7 +119,6 @@ export class AuthRepository {
         this.loading = true;
         this.authService.Register(email, password).subscribe({
             next: (data) => {
-                console.log(data);
                 if (data.status === 'success') {
                     this.toastrService.show(data.message, ToastType.Success);
                     this.router.navigate(['/home']);

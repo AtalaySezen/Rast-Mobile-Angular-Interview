@@ -33,7 +33,7 @@ export interface PostSocialMediaData {
     url: string;
     name: string;
     description: string;
-    status?:string;
-    message?:string
-    
+    status?: string;
+    message?: string
+
 }
