@@ -2,7 +2,7 @@
 <div align="center">
   <h1 align="center">Rast Mobile Angular Interview</h1>
   <p align="center">
-    <a href="demolink.com.tr">View Demo</a>
+    <a href="https://rast-mobile-angular.netlify.app/">View Application</a>
   </p>
 </div>
 <ol>
@@ -19,6 +19,7 @@
     </ul>
     <ul>
       <li><a href="#backend-setup-nodejs">Backend Setup (Node.js)</a></li>
+      <li><a href="#postman-documentation">Postman Documentation </a></li>
       <li><a href="#frontend-setup-angular">Frontend Setup (Angular)</a></li>
     </ul>
   </li>
@@ -111,6 +112,12 @@ Create a .env file in the backend directory and add the following configuration:
    ```
 <br>
 The Node.js application will be accessible at http://localhost:3000 by default.
+
+### Postman Documentation
+For detailed information about the API, including endpoints, request methods, parameters, and example responses, please refer to the Postman documentation:
+  <p align="left">
+    <a href="https://documenter.getpostman.com/view/28053393/2sA3sAfmUj">Postman Documentation</a>
+  </p>
    
 ### Frontend Setup (Angular)
 
