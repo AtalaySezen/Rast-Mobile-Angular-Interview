@@ -1,7 +1,3 @@
-
-
-
-
 <a id="readme-top"></a>
 <div align="center">
   <h1 align="center">Rast Mobile Angular Interview</h1>
