@@ -296,15 +296,11 @@ Example:
 ```scss
 
 @mixin header-font {
-    @include font-roboto();
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
     line-height: 21px;
-    color: $white-color;
-    
-    @media (max-width: 900px) {
-        font-size: 13px;
-    }
+}
 ```
 <br />
 
@@ -314,9 +310,10 @@ Define your color scheme in variables.scss for easy theme customization:
 
 Example:
 ```scss
-$mainHeader: #7545ff;
-$bodyBackground: #f3f3f3;
-$card-background: #ffffff;
+$bg-white: #fff;
+$error-red: #df1c41;
+$box-shadow-black: #565be00f;
+$bg-purple: #744bfc;
 ```
 
 **Icons**
@@ -325,23 +322,15 @@ Use the mixins in icons.scss to add icons to your project.
 
 Example:
 ```scss
-  @mixin icon {
+@mixin icon-xl {
     background-repeat: no-repeat;
     background-size: cover;
     width: 24px;
     height: 24px;
 }
 
-@mixin icon-xl {
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 32px;
-    height: 32px;
-}
-
-Example Usage
 .example-icon {
-    @include icon;
+    @include icon-xl;
     background-image: url('path/to/icon.svg');
 }
 ```
